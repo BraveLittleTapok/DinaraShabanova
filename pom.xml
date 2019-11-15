@@ -23,22 +23,32 @@
 
     <profiles>
         <profile>
-            <id>sum</id>
+            <id>sumAndSub</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/TestSuite1.xml</suite.file>
+                <suite.file>src\test\resources\SuiteTestSumAndSubtract.xml</suite.file>
             </properties>
         </profile>
 
         <profile>
-            <id>mult</id>
+            <id>MultAndDiv</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/TestSuite2.xml</suite.file>
+                <suite.file>src\test\resources\SuiteTestMultAndDiv.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>AllTest</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src\test\resources\AllTestsSuite.xml</suite.file>
             </properties>
         </profile>
     </profiles>
@@ -91,6 +101,7 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${suite.file}</suiteXmlFile>
                     </suiteXmlFiles>
+                    <groups></groups>
                 </configuration>
             </plugin>
         </plugins>

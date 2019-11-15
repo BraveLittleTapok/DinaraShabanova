@@ -18,4 +18,13 @@ public class DivideDataProvider {
                 {0, LONG_MAX, 0}
         };
     }
+
+    @DataProvider(name = "DataProviderDivideByZero")
+    public Object[][] divideDataProviderDivByZero() {
+        return new Object[][]{
+                {0, 0},
+                {LONG_MIN, 0},
+                {LONG_MAX, 0},
+        };
+    }
 }
