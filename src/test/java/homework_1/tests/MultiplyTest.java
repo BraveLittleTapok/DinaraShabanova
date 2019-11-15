@@ -1,8 +1,6 @@
 package homework_1.tests;
 
-import homework_1.dataproviders.DivideDataProvider;
 import homework_1.dataproviders.MultiplyDataProviders;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;

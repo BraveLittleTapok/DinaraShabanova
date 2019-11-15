@@ -13,7 +13,7 @@ public class MultiplyDataProviders {
         return new Object[][]{
                 {1, 1, 1},
                 {0, LONG_MIN, 0},
-                {LONG_MAX, 0, LONG_MIN},
+                {LONG_MAX, 0, 0},
                 {25, 25, 625}
         };
     }

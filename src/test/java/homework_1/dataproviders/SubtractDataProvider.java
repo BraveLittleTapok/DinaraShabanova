@@ -24,7 +24,7 @@ public class SubtractDataProvider {
     public Object[][] subtractDataProviderOverMaxValue() {
         return new Object[][]{
                 {LONG_MIN, 1, LONG_MAX},
-                {LONG_MIN, LONG_MIN, -2},
+                {LONG_MIN, LONG_MIN, 0},
                 {LONG_MAX, LONG_MAX, 0}
         };
     }
