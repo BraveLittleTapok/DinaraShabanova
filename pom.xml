@@ -19,6 +19,10 @@
 
         <calculator.version>1.0</calculator.version>
         <surefire.version>3.0.0-M3</surefire.version>
+
+        <selenium.version>3.141.59</selenium.version>
+        <webdrivermanager.version>3.7.1</webdrivermanager.version>
+        <common.io.version>2.6</common.io.version>
     </properties>
 
     <profiles>
@@ -28,7 +32,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src\test\resources\SuiteTestSumAndSubtract.xml</suite.file>
+                <suite.file>src/test/resources/SuiteTestSumAndSubtract.xml</suite.file>
             </properties>
         </profile>
 
@@ -38,7 +42,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src\test\resources\SuiteTestMultAndDiv.xml</suite.file>
+                <suite.file>src/test/resources/SuiteTestMultAndDiv.xml</suite.file>
             </properties>
         </profile>
 
@@ -48,7 +52,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src\test\resources\AllTestsSuite.xml</suite.file>
+                <suite.file>src/test/resources/AllTestsSuite.xml</suite.file>
             </properties>
         </profile>
     </profiles>
@@ -60,23 +64,15 @@
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>com.epam.tat.module4</groupId>
             <artifactId>calculator</artifactId>
             <version>${calculator.version}</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}\src\main\resources\calculator-1.0.jar</systemPath>
+            <systemPath>${project.basedir}/src/main/resources/calculator-1.0.jar</systemPath>
         </dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <version>${surefire.version}</version>
-        </dependency>
+
     </dependencies>
 
     <build>
@@ -101,7 +97,6 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${suite.file}</suiteXmlFile>
                     </suiteXmlFiles>
-                    <groups></groups>
                 </configuration>
             </plugin>
         </plugins>

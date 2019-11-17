@@ -1,7 +1,9 @@
 package homework_1.tests;
 
 import com.epam.tat.module4.Calculator;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
 /**
@@ -11,12 +13,12 @@ public class AbstractBaseTest {
 
     protected Calculator calculator;
 
-    @BeforeTest
+    @BeforeSuite
     public void setUp() {
         this.calculator = new Calculator();
     }
 
-    @AfterTest
+    @AfterSuite
     private void TearUp() {
         calculator = null;
     }
