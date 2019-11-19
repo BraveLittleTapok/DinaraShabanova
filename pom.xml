@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>epam.com.homework</groupId>
+    <artifactId>TestingCalculator</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <java.source.version>1.8</java.source.version>
+        <java.target.version>1.8</java.target.version>
+        <encoding.version>UTF-8</encoding.version>
+
+        <testng.version>7.0.0</testng.version>
+
+        <maven.compiler.plugin.version>3.6.2</maven.compiler.plugin.version>
+
+        <calculator.version>1.0</calculator.version>
+        <surefire.version>3.0.0-M3</surefire.version>
+
+        <selenium.version>3.141.59</selenium.version>
+        <webdrivermanager.version>3.7.1</webdrivermanager.version>
+        <common.io.version>2.6</common.io.version>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>sumAndSub</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/SuiteTestSumAndSubtract.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>MultAndDiv</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/SuiteTestMultAndDiv.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>AllTest</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/AllTestsSuite.xml</suite.file>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.epam.tat.module4</groupId>
+            <artifactId>calculator</artifactId>
+            <version>${calculator.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/calculator-1.0.jar</systemPath>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <source>${java.source.version}</source>
+                    <target>${java.target.version}</target>
+                    <encoding>${encoding.version}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire.version}</version>
+                <configuration>
+                    <reuseForks>false</reuseForks>
+                    <forkCount>0</forkCount>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${suite.file}</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
