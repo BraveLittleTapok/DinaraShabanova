@@ -18,9 +18,9 @@ public class AbstractClassForDriver {
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(1000, TimeUnit.MILLISECONDS);
-        driver.manage().timeouts().pageLoadTimeout(2000, TimeUnit.MILLISECONDS);
-        driver.manage().timeouts().setScriptTimeout(3000, TimeUnit.MILLISECONDS);
+        driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
+        driver.manage().timeouts().pageLoadTimeout(20000, TimeUnit.MILLISECONDS);
+        driver.manage().timeouts().setScriptTimeout(30000, TimeUnit.MILLISECONDS);
     }
 
     @AfterTest
