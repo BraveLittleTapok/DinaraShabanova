@@ -33,18 +33,14 @@ public class Exercise1 extends AbstractClassForDriver {
         assertEquals(loginedUserName.getText(), "PITER CHAILOVSKII");
 
         //6.Menu buttons are displayed and have proper texts "HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"
-        WebElement home = new WebDriverWait(driver, 10)
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("" +
-                        "//div[@class='uui-header dark-gray']//a[contains(text(),'Home')]")));
-        WebElement contactForm = new WebDriverWait(driver, 10)
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("" +
-                        "//div[@class='uui-header dark-gray']//a[contains(text(),'Contact form')]")));
-        WebElement service = new WebDriverWait(driver, 10)
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("" +
-                        "//div[@class='uui-header dark-gray']//a[contains(text(),'Service')]")));
-        WebElement metalsColors = new WebDriverWait(driver, 10)
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("" +
-                        "//div[@class='uui-header dark-gray']//a[contains(text(),'Metals & Colors')]")));
+        WebElement home = driver.findElement(By.xpath(
+                "//div[@class='uui-header dark-gray']//a[contains(text(),'Home')]"));
+        WebElement contactForm = driver.findElement(By.xpath(
+                "//div[@class='uui-header dark-gray']//a[contains(text(),'Contact form')]"));
+        WebElement service = driver.findElement(By.xpath("" +
+                "//div[@class='uui-header dark-gray']//a[contains(text(),'Service')]"));
+        WebElement metalsColors = driver.findElement(By.xpath("" +
+                "//div[@class='uui-header dark-gray']//a[contains(text(),'Metals & Colors')]"));
 
         assertTrue(home.isDisplayed());
         assertTrue(contactForm.isDisplayed());
@@ -57,67 +53,79 @@ public class Exercise1 extends AbstractClassForDriver {
         assertEquals(metalsColors.getText(), "METALS & COLORS");
 
         //7. 4 Images are displayed
-        WebElement imgPractise = new WebDriverWait(driver,10)
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath(
-                        "//div[@class='col-sm-3']//span[@class='icons-benefit icon-practise']")));
+        WebElement imgPractise = driver.findElement(By.xpath(
+                "//div[@class='col-sm-3']//span[@class='icons-benefit icon-practise']"));
         assertTrue(imgPractise.isDisplayed());
-        WebElement imgCustom = new WebDriverWait(driver,10)
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath(
-                        "//div[@class='col-sm-3']//span[@class='icons-benefit icon-custom']")));
+        WebElement imgCustom = driver.findElement(By.xpath(
+                "//div[@class='col-sm-3']//span[@class='icons-benefit icon-custom']"));
         assertTrue(imgCustom.isDisplayed());
 
-        WebElement imgMulti = new WebDriverWait(driver,10)
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath(
-                        "//div[@class='col-sm-3']//span[@class='icons-benefit icon-multi']")));
+        WebElement imgMulti = driver.findElement(By.xpath(
+                "//div[@class='col-sm-3']//span[@class='icons-benefit icon-multi']"));
         assertTrue(imgMulti.isDisplayed());
 
-        WebElement imgBase = new WebDriverWait(driver,10)
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath(
-                        "//div[@class='col-sm-3']//span[@class='icons-benefit icon-base']")));
+        WebElement imgBase = driver.findElement(By.xpath(
+                "//div[@class='col-sm-3']//span[@class='icons-benefit icon-base']"));
         assertTrue(imgBase.isDisplayed());
 
         //8. Texts are displayed and equal to expected under images
-        WebElement textUnderPractiseImg = new WebDriverWait(driver,10)
-                .until(ExpectedConditions.presenceOfElementLocated(
-                        By.xpath("//*[contains(text(), 'To include good practices')]")));
+        WebElement textUnderPractiseImg = driver.findElement(
+                By.xpath("//*[contains(text(), 'To include good practices')]"));
         assertTrue(textUnderPractiseImg.isDisplayed());
-        assertEquals(textUnderPractiseImg.getText(), "To include good practices\n" +
-                "and ideas from successful\n" +
-                "EPAM project");
+        assertEquals(textUnderPractiseImg.getText(), Constants.TEXT_FOR_PRACTISE);
 
-        WebElement textUnderCustomImg = new WebDriverWait(driver,10)
-                .until(ExpectedConditions.presenceOfElementLocated(
-                        By.xpath("//*[contains(text(), 'To be flexible and')]")));
+        WebElement textUnderCustomImg = driver.findElement(
+                By.xpath("//*[contains(text(), 'To be flexible and')]"));
         assertTrue(textUnderCustomImg.isDisplayed());
-        assertEquals(textUnderCustomImg.getText(), "To be flexible and\n" +
-                "customizable");
+        assertEquals(textUnderCustomImg.getText(), Constants.TEXT_FOR_CUSTOM);
 
-        WebElement textUnderMultiPlImg = new WebDriverWait(driver,10)
-                .until(ExpectedConditions.presenceOfElementLocated(
-                        By.xpath("//*[contains(text(), 'To be multiplatform')]")));
+        WebElement textUnderMultiPlImg = driver.findElement(
+                By.xpath("//*[contains(text(), 'To be multiplatform')]"));
         assertTrue(textUnderMultiPlImg.isDisplayed());
-        assertEquals(textUnderMultiPlImg.getText(), "To be multiplatform");
+        assertEquals(textUnderMultiPlImg.getText(), Constants.TEXT_FOR_MULTI);
 
-        WebElement textUnderBaseImg = new WebDriverWait(driver,10)
-                .until(ExpectedConditions.presenceOfElementLocated(
-                        By.xpath("//*[contains(text(), 'Already have good base')]")));
+        WebElement textUnderBaseImg = driver.findElement(
+                By.xpath("//*[contains(text(), 'Already have good base')]"));
         assertTrue(textUnderBaseImg.isDisplayed());
-        assertEquals(textUnderBaseImg.getText(), "Already have good base\n" +
-                "(about 20 internal and\n" +
-                "some external projects),\n" +
-                "wish to get more…");
+        assertEquals(textUnderBaseImg.getText(), Constants.TEXT_FOR_BASE);
 
         //9. text of the main headers
-        WebElement mainText = new WebDriverWait(driver,10)
-                .until(ExpectedConditions.presenceOfElementLocated(
-                        By.name("main-title")));
+        WebElement mainText = driver.findElement(By.name("main-title"));
         assertTrue(mainText.isDisplayed());
         assertEquals(mainText.getText(), "EPAM FRAMEWORK WISHES…");
 
-        WebElement underMainText = new WebDriverWait(driver,10)
-                .until(ExpectedConditions.presenceOfElementLocated(
-                        By.name("jdi-text")));
+        WebElement underMainText = driver.findElement(By.name("jdi-text"));
         assertTrue(underMainText.isDisplayed());
-        assertEquals(underMainText.getText(), "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.");
+        assertEquals(underMainText.getText(), Constants.TEXT_UNDER_MAIN_TITLE);
+
+        //10. Assert that there is the iframe in the center of page
+        WebElement frame = driver.findElement(By.id("iframe"));
+        assertTrue(frame.isDisplayed());
+
+        //11. Switch to the iframe and check that there is Epam logo in the left
+        // top conner of iframe
+        driver.switchTo().frame("iframe");
+        WebElement epamLogo = driver.findElement(By.id("epam_logo"));
+        assertTrue(epamLogo.isDisplayed());
+
+        // 12. Switch to original window back
+        driver.switchTo().defaultContent();
+
+        // 13. Assert a text of the sub header
+        WebElement linkGithub = driver.findElement(By.xpath("//h3[@class='text-center']/a[@ui='link']"));
+        assertTrue(linkGithub.isDisplayed());
+        assertEquals(linkGithub.getText(), "JDI GITHUB");
+
+        //14.Assert that JDI GITHUB is a link and has a proper URL
+        String urlGithub = "https://github.com/epam/JDI";
+        assertEquals(linkGithub.getAttribute("href"), urlGithub);
+
+        //15. Assert that there is Left Section
+        assertTrue(driver.findElement(By.id("mCSB_1")).isDisplayed());
+
+        //16.Assert that there is Footer
+        assertTrue(driver.findElement(By.className("footer-bg")).isDisplayed());
+
+
     }
 }
