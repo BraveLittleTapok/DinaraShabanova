@@ -2,10 +2,12 @@ package homework_2.exercise2;
 
 import homework_2.AbstractClassForDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
+import java.util.List;
 
 import static homework_2.Constants.listDropMenuService;
 
@@ -15,7 +17,7 @@ import static homework_2.Constants.listDropMenuService;
 public class Exercise2 extends AbstractClassForDriver {
 
     @Test
-    public void exercise2() {
+    public void testingExercise2() {
         SoftAssert softAssert = new SoftAssert();
         // 1. open site
         driver.get("https://epam.github.io/JDI/index.html");
@@ -54,7 +56,6 @@ public class Exercise2 extends AbstractClassForDriver {
                             "//*[contains(text(),'" + option + "')]"));
             softAssert.assertTrue(element.isDisplayed());
         }
-
         // 7. Open through the header menu Service -> Different Elements Page
         driver.findElement(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']//*" +
                 "[@class='dropdown-toggle']")).click();
@@ -66,40 +67,90 @@ public class Exercise2 extends AbstractClassForDriver {
 
         //8.Check interface on Different elements page, it contains all needed elements: 4 checkboxes,
         // 4 radios, 1 dropdown, 2 buttons
-        WebElement element = null;
-        int countCheckbox = 0;
-        do{
-            try {
-                element = driver.findElement(By.xpath(
-                        "//div[@class='main-content-hg']/div[2]/label[" + ++countCheckbox +"]"
-                ));
-            }catch (NoSuchElementException e) {
-                --countCheckbox;
-                element = null;
-            }
-        }while(element != null );
+        //check that there exactly 4 element for each
+        WebElement elements = driver.findElement(By.xpath("//div[@class='main-content-hg']/div[2]"));
+        List<WebElement> listOfElements = elements.findElements(By.tagName("label"));
+        softAssert.assertEquals(listOfElements.size(), 4);
 
-        int countRadio = 0;
-        do{
-            try {
-                element = driver.findElement(By.xpath(
-                        "//div[@class='main-content-hg']/div[3]/label[" + ++countRadio +"]"
-                ));
-            }catch (NoSuchElementException e) {
-                --countRadio;
-                element = null;
-            }
-        }while(element != null );
-        softAssert.assertEquals(countCheckbox, 4);
-        softAssert.assertEquals(countRadio, 4);
-       /* for (int i = 1; i <= 4; i++) {
-            softAssert.assertTrue(driver.findElement(By.xpath(
-                    "//div[@class='main-content-hg']/div[2]/label[" + i +"]"
-            )).isDisplayed());
-            softAssert.assertTrue(driver.findElement(By.xpath(
-                    "//div[@class='main-content-hg']/div[3]/label[" + i +"]"
-            )).isDisplayed());
-        }*/
+        elements = driver.findElement(By.xpath("//div[@class='main-content-hg']/div[3]"));
+        listOfElements = elements.findElements(By.tagName("label"));
+        softAssert.assertEquals(listOfElements.size(), 4);
+        //softAssert.assertEquals(countRadio, 4);
+        //dropdown element
+        elements = driver.findElement(By.xpath("//div[@class='main-content-hg']/div[@class='colors']"));
+        listOfElements = elements.findElements(By.tagName("select"));
+        softAssert.assertEquals(listOfElements.size(), 1);
+
+        //first buttons
+        softAssert.assertTrue(driver.findElement(By.xpath(
+                "//div[@class='main-content-hg']//*[@value='Default Button']")).isDisplayed());
+        //second button
+        softAssert.assertTrue(driver.findElement(By.xpath(
+                "//div[@class='main-content-hg']//*[@value='Button']")).isDisplayed());
+
+        //9. Assert that there is Right Section
+        softAssert.assertTrue(driver.findElement(By.name("log-sidebar")).isDisplayed());
+
+        //10. Assert that there is Right Section
+        softAssert.assertTrue(driver.findElement(By.id("mCSB_1")).isDisplayed());
+
+        //11. Select checkboxes: Water, Wind and (12.) Assert that for each checkbox there is an individual 
+        // log row and value is corresponded to the status of checkbox.  AND 17. Unselect and assert checkboxes Water, Wind
+        //AND 18. Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox. 
+        //Log rows are displayed, checkbox name and its status is corresponding to selected
+
+        //Water checked select and check lo row
+        WebElement elementWater = driver.findElement(By.xpath("//div[@class='main-content-hg']//" +
+                "label[text()[contains(.,'Water')]]/input[@type='checkbox']"));
+        elementWater.click();
+        softAssert.assertTrue(elementWater.isSelected());
+        WebElement log = driver.findElement(By.xpath("//div[@class='info-panel-section']/ul"));
+        List<WebElement> listOfLog = log.findElements(By.tagName("li"));
+        softAssert.assertTrue(listOfLog.get(0).getText().contains("Water: condition changed to true")
+                & listOfLog.get(0).isDisplayed());
+
+        //Water unchecked select and check row
+        elementWater.click();
+        listOfLog = log.findElements(By.tagName("li"));
+        softAssert.assertTrue(listOfLog.get(0).getText().contains("Water: condition changed to false")
+                & listOfLog.get(0).isDisplayed());
+
+        //Wind checked select and check row
+        WebElement elementWind = driver.findElement(By.xpath("//div[@class='main-content-hg']//" +
+                "label[text()[contains(.,'Wind')]]/input[@type='checkbox']"));
+        elementWind.click();
+        softAssert.assertTrue(elementWind.isSelected());
+        listOfLog = log.findElements(By.tagName("li"));
+        softAssert.assertTrue(listOfLog.get(0).getText().contains("Wind: condition changed to true")
+                & listOfLog.get(0).isDisplayed());
+        //Wind unchecked select and check row
+        elementWind.click();
+        listOfLog = log.findElements(By.tagName("li"));
+        softAssert.assertTrue(listOfLog.get(0).getText().contains("Wind: condition changed to false")
+                & listOfLog.get(0).isDisplayed());
+
+        //13. Select radio and 14. Assert that for button there is a log row and
+        // value is corresponded to the status of radio button. 
+        WebElement element = driver.findElement(By.xpath("//div[@class='main-content-hg']//" +
+                "label[text()[contains(.,'Gold')]]/input[@type='radio']"));
+        element.click();
+        softAssert.assertTrue(element.isSelected());
+
+        listOfLog = log.findElements(By.tagName("li"));
+        softAssert.assertTrue(listOfLog.get(0).getText().contains("metal: value changed to Gold")
+                & listOfLog.get(0).isDisplayed());
+
+        //15. Select in dropdown Yellow AND 16. Assert that for dropdown there is a log row and value is corresponded to the selected value. 
+
+        Select dropDown = new Select(driver.findElement(By.xpath("//div[@class='main-content-hg']//" +
+                "select[@class='uui-form-element']")));
+        dropDown.selectByVisibleText("Yellow");
+        softAssert.assertTrue(dropDown.getFirstSelectedOption().isSelected());
+        listOfLog = log.findElements(By.tagName("li"));
+        softAssert.assertTrue(listOfLog.get(0).getText().contains("Colors: value changed to Yellow")
+                & listOfLog.get(0).isDisplayed());
+
         softAssert.assertAll();
     }
+
 }
