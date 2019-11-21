@@ -1,4 +1,4 @@
-package homework_2.exercise1;
+package homework_2;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
  * Created by dinar on 17.11.2019.
  */
 public class AbstractClassForDriver {
-    WebDriver driver;
+    protected WebDriver driver;
 
     @BeforeTest
     public void setUp() {

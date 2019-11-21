@@ -1,11 +1,17 @@
 package homework_2.exercise1;
 
 
+import homework_2.AbstractClassForDriver;
+import homework_2.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -33,24 +39,18 @@ public class Exercise1 extends AbstractClassForDriver {
         assertEquals(loginedUserName.getText(), "PITER CHAILOVSKII");
 
         //6.Menu buttons are displayed and have proper texts "HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"
-        WebElement home = driver.findElement(By.xpath(
-                "//div[@class='uui-header dark-gray']//a[contains(text(),'Home')]"));
-        WebElement contactForm = driver.findElement(By.xpath(
-                "//div[@class='uui-header dark-gray']//a[contains(text(),'Contact form')]"));
-        WebElement service = driver.findElement(By.xpath("" +
-                "//div[@class='uui-header dark-gray']//a[contains(text(),'Service')]"));
-        WebElement metalsColors = driver.findElement(By.xpath("" +
-                "//div[@class='uui-header dark-gray']//a[contains(text(),'Metals & Colors')]"));
-
-        assertTrue(home.isDisplayed());
-        assertTrue(contactForm.isDisplayed());
-        assertTrue(service.isDisplayed());
-        assertTrue(metalsColors.isDisplayed());
-
-        assertEquals(home.getText(), "HOME");
-        assertEquals(contactForm.getText(), "CONTACT FORM");
-        assertEquals(service.getText(), "SERVICE");
-        assertEquals(metalsColors.getText(), "METALS & COLORS");
+        List<WebElement> headerItems = new ArrayList<>();
+        for (int i = 1; i <= 4; i++) {
+            headerItems.add(driver.findElement(By.xpath(
+                    "//ul[@class='uui-navigation nav navbar-nav m-l8']/li[" + i + "]")));
+        }
+        for (WebElement el: headerItems) {
+            assertTrue(el.isDisplayed());
+        }
+        assertEquals(headerItems.get(0).getText(), "HOME");
+        assertEquals(headerItems.get(1).getText(), "CONTACT FORM");
+        assertEquals(headerItems.get(2).getText(), "SERVICE");
+        assertEquals(headerItems.get(3).getText(), "METALS & COLORS");
 
         //7. 4 Images are displayed
         WebElement imgPractise = driver.findElement(By.xpath(
@@ -72,7 +72,7 @@ public class Exercise1 extends AbstractClassForDriver {
         WebElement textUnderPractiseImg = driver.findElement(
                 By.xpath("//*[contains(text(), 'To include good practices')]"));
         assertTrue(textUnderPractiseImg.isDisplayed());
-        assertEquals(textUnderPractiseImg.getText(), Constants.TEXT_FOR_PRACTISE);
+        Assert.assertEquals(textUnderPractiseImg.getText(), Constants.TEXT_FOR_PRACTISE);
 
         WebElement textUnderCustomImg = driver.findElement(
                 By.xpath("//*[contains(text(), 'To be flexible and')]"));
