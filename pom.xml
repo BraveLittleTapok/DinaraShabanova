@@ -55,8 +55,28 @@
                 <suite.file>src/test/resources/AllTestsSuite.xml</suite.file>
             </properties>
         </profile>
-    </profiles>
 
+        <profile>
+            <id>HM2_exercise1</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/HM2_exercise1.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>HM2_exercise2</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/HM2_exercise2.xml</suite.file>
+            </properties>
+        </profile>
+
+    </profiles>
     <dependencies>
 
         <dependency>
