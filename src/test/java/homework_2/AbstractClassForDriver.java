@@ -21,6 +21,7 @@ public class AbstractClassForDriver {
         driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
         driver.manage().timeouts().pageLoadTimeout(20000, TimeUnit.MILLISECONDS);
         driver.manage().timeouts().setScriptTimeout(30000, TimeUnit.MILLISECONDS);
+        driver.manage().window().maximize();
     }
 
     @AfterTest
@@ -28,4 +29,5 @@ public class AbstractClassForDriver {
         driver.quit();
         driver = null;
     }
+
 }

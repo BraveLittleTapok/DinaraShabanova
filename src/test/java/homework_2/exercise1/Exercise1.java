@@ -2,17 +2,15 @@ package homework_2.exercise1;
 
 
 import homework_2.AbstractClassForDriver;
-import homework_2.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import static homework_2.Constants.*;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -39,14 +37,11 @@ public class Exercise1 extends AbstractClassForDriver {
         assertEquals(loginedUserName.getText(), "PITER CHAILOVSKII");
 
         //6.Menu buttons are displayed and have proper texts "HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"
-        List<WebElement> headerItems = new ArrayList<>();
-        for (int i = 1; i <= 4; i++) {
-            headerItems.add(driver.findElement(By.xpath(
-                    "//ul[@class='uui-navigation nav navbar-nav m-l8']/li[" + i + "]")));
-        }
+        List<WebElement> headerItems = driver.findElements(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']/li"));
         for (WebElement el: headerItems) {
             assertTrue(el.isDisplayed());
         }
+
         assertEquals(headerItems.get(0).getText(), "HOME");
         assertEquals(headerItems.get(1).getText(), "CONTACT FORM");
         assertEquals(headerItems.get(2).getText(), "SERVICE");
@@ -72,22 +67,22 @@ public class Exercise1 extends AbstractClassForDriver {
         WebElement textUnderPractiseImg = driver.findElement(
                 By.xpath("//*[contains(text(), 'To include good practices')]"));
         assertTrue(textUnderPractiseImg.isDisplayed());
-        Assert.assertEquals(textUnderPractiseImg.getText(), Constants.TEXT_FOR_PRACTISE);
+        assertEquals(textUnderPractiseImg.getText(), TEXT_FOR_PRACTISE);
 
         WebElement textUnderCustomImg = driver.findElement(
                 By.xpath("//*[contains(text(), 'To be flexible and')]"));
         assertTrue(textUnderCustomImg.isDisplayed());
-        assertEquals(textUnderCustomImg.getText(), Constants.TEXT_FOR_CUSTOM);
+        assertEquals(textUnderCustomImg.getText(), TEXT_FOR_CUSTOM);
 
         WebElement textUnderMultiPlImg = driver.findElement(
                 By.xpath("//*[contains(text(), 'To be multiplatform')]"));
         assertTrue(textUnderMultiPlImg.isDisplayed());
-        assertEquals(textUnderMultiPlImg.getText(), Constants.TEXT_FOR_MULTI);
+        assertEquals(textUnderMultiPlImg.getText(), TEXT_FOR_MULTI);
 
         WebElement textUnderBaseImg = driver.findElement(
                 By.xpath("//*[contains(text(), 'Already have good base')]"));
         assertTrue(textUnderBaseImg.isDisplayed());
-        assertEquals(textUnderBaseImg.getText(), Constants.TEXT_FOR_BASE);
+        assertEquals(textUnderBaseImg.getText(), TEXT_FOR_BASE);
 
         //9. text of the main headers
         WebElement mainText = driver.findElement(By.name("main-title"));
@@ -96,7 +91,7 @@ public class Exercise1 extends AbstractClassForDriver {
 
         WebElement underMainText = driver.findElement(By.name("jdi-text"));
         assertTrue(underMainText.isDisplayed());
-        assertEquals(underMainText.getText(), Constants.TEXT_UNDER_MAIN_TITLE);
+        assertEquals(underMainText.getText(), TEXT_UNDER_MAIN_TITLE);
 
         //10. Assert that there is the iframe in the center of page
         WebElement frame = driver.findElement(By.id("iframe"));

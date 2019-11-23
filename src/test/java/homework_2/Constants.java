@@ -1,6 +1,5 @@
 package homework_2;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,7 +26,7 @@ public class Constants {
             " EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE" +
             " VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.";
 
-    public final static List<String> listDropMenuService = new ArrayList<>(
+    public final static List<String> listDropMenuService =
             Arrays.asList(new String[]{"Support", "Dates", "Complex Table", "Simple Table",
-                    "Table with pages", "Different elements"}));
+                    "Table with pages", "Different elements"});
 }
