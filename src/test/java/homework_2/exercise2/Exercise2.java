@@ -53,27 +53,24 @@ public class Exercise2 extends AbstractClassForDriver {
         for (String option : listDropMenuService) {
             WebElement element = driver.findElement(By.xpath(
                     "//ul[@class='sidebar-menu']/li[@class='menu-title']" +
-                            "//*[contains(text(),'" + option + "')]"));
+                            "//span[contains(text(),'" + option + "')]"));
             softAssert.assertTrue(element.isDisplayed());
         }
         // 7. Open through the header menu Service -> Different Elements Page
-        driver.findElement(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']//*" +
-                "[@class='dropdown-toggle']")).click();
-        driver.findElement(By.xpath(
-                "//ul[@class='uui-navigation nav navbar-nav m-l8']//*" +
-                        "[@class='dropdown-menu']" +
-                        "//*[contains(text(),'Different elements')]")).click();
+        WebElement itemService = driver.findElement(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']//" +
+                "li[@class='dropdown']"));
+        itemService.click();
+        itemService.findElement(By.xpath("//a[contains(text(),'Different elements')]")).click();
         softAssert.assertEquals(driver.getTitle(), "Different Elements");
 
         //8.Check interface on Different elements page, it contains all needed elements: 4 checkboxes,
         // 4 radios, 1 dropdown, 2 buttons
         //check that there exactly 4 element for each
-        WebElement elements = driver.findElement(By.xpath("//div[@class='main-content-hg']/div[2]"));
-        List<WebElement> listOfElements = elements.findElements(By.tagName("label"));
+        WebElement elements = driver.findElement(By.className("main-content-hg"));
+        List<WebElement> listOfElements = elements.findElements(By.className("label-checkbox"));
         softAssert.assertEquals(listOfElements.size(), 4);
 
-        elements = driver.findElement(By.xpath("//div[@class='main-content-hg']/div[3]"));
-        listOfElements = elements.findElements(By.tagName("label"));
+        listOfElements = elements.findElements(By.className("label-radio"));
         softAssert.assertEquals(listOfElements.size(), 4);
         //softAssert.assertEquals(countRadio, 4);
         //dropdown element
@@ -83,10 +80,10 @@ public class Exercise2 extends AbstractClassForDriver {
 
         //first buttons
         softAssert.assertTrue(driver.findElement(By.xpath(
-                "//div[@class='main-content-hg']//*[@value='Default Button']")).isDisplayed());
+                "//div[@class='main-content-hg']//button[@value='Default Button']")).isDisplayed());
         //second button
         softAssert.assertTrue(driver.findElement(By.xpath(
-                "//div[@class='main-content-hg']//*[@value='Button']")).isDisplayed());
+                "//div[@class='main-content-hg']//input[@value='Button']")).isDisplayed());
 
         //9. Assert that there is Right Section
         softAssert.assertTrue(driver.findElement(By.name("log-sidebar")).isDisplayed());
