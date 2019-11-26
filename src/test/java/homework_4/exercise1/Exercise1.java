@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.util.Properties;
 
 import static com.codeborne.selenide.Selenide.open;
+import static homework_4.Constants.SERVICE;
+import static homework_4.Constants.TABLE_WITH_PAGES;
+import static homework_4.Constants.listDropMenuService;
 
 /**
  * Created by dinar on 24.11.2019.
@@ -14,6 +17,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class Exercise1 {
     private static final String PATH_TO_PROPERTIES = "src/main/resources/hw3/UserData.properties";
     private static final String URL_HOME_PAGE = "https://epam.github.io/JDI/index.html";
+
     @Test
     public void exercise1() throws IOException {
         // 1. open site
@@ -30,5 +34,25 @@ public class Exercise1 {
 
         // 4.Logined user's name is display correctly
         steps.userNameShouldBe("PITER CHAILOVSKII");
+
+        //5. Click on "Service" subcategory in the header
+        // and check that drop down contains options
+        steps.clickHeaderMenu(SERVICE);
+        steps.headerDropDownContainsAllElements(listDropMenuService);
+
+        //6. Click on Service subcategory in the left section
+        // and check that drop down contains options
+        steps.clickLeftMenuItem(SERVICE);
+        steps.leftDropDownContainsAllElements(listDropMenuService);
+
+        //7. Open through the header menu Service -> Table with pages
+        steps.clickHeaderMenu(SERVICE);
+        steps.clickHeaderMenuDropDown(TABLE_WITH_PAGES);
+        steps.titleShouldBe(TABLE_WITH_PAGES);
+
+        //8. Check that default value for “Show entries” dropdown is 5
+        steps.defaultEntitiesValueShouldBe(5);
+
+        steps.softAssertAll();
     }
 }
