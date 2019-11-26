@@ -51,7 +51,15 @@ public class Exercise1 {
         steps.titleShouldBe(TABLE_WITH_PAGES);
 
         //8. Check that default value for “Show entries” dropdown is 5
-        steps.defaultEntitiesValueShouldBe(5);
+        steps.defaultEntriesValueShouldBe(5);
+        //9. Assert that there is Right Section
+        steps.pageHasRightSection();
+        //10. Assert that there is Left Section
+        steps.pageHasLeftSection();
+        //11. Select "10" value for the entries in the dropdown list
+        steps.clickEntries();
+        steps.chooseEntries(10);
+        steps.entriesIsSelect();
 
         steps.softAssertAll();
     }

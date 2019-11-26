@@ -16,7 +16,7 @@ public class TableWithPages {
     }
 
 
-    public int getDefaultValOfEntities() {
+    public int getDefaultValOfEntries() {
         return Integer.parseInt($(By.xpath("//select[@name='table-with-pages_length']/" +
                 "option")).shouldBe(visible).getText());
     }

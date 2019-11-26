@@ -33,7 +33,7 @@ public class StepsBase {
         homePage.getUsernameLabelText().shouldBe(text(name));
     }
 
-    public void softAssertAll(){
+    public void softAssertAll() {
         softAssert.assertAll();
     }
 
