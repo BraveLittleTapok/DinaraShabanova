@@ -7,9 +7,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import static com.codeborne.selenide.Selenide.open;
-import static homework_4.Constants.SERVICE;
-import static homework_4.Constants.TABLE_WITH_PAGES;
-import static homework_4.Constants.listDropMenuService;
+import static homework_4.Constants.*;
 
 /**
  * Created by dinar on 24.11.2019.
@@ -60,6 +58,29 @@ public class Exercise1 {
         steps.clickEntries();
         steps.chooseEntries(10);
         steps.entriesIsSelect();
+        steps.logRowRespondToChoosenEntrie(LOG_ROW_10);
+        steps.tableHasCorrectNumberOfEntries(10);
+        //12. Assert that for the dropdown there is an individual log row
+        // and value is corresponded to the value of dropdown.
+        //13.Assert that in the table displayed corrected amount of entries
+        steps.clickEntries();
+        steps.chooseEntries(5);
+        steps.logRowRespondToChoosenEntrie(LOG_ROW_5);
+        steps.tableHasCorrectNumberOfEntries(5);
+        steps.clickEntries();
+        steps.chooseEntries(15);
+        steps.logRowRespondToChoosenEntrie(LOG_ROW_15);
+        //   steps.tableHasCorrectNumberOfEntries(15);
+        steps.clickEntries();
+        steps.chooseEntries(20);
+        steps.logRowRespondToChoosenEntrie(LOG_ROW_20);
+        //steps.tableHasCorrectNumberOfEntries(5);
+
+        //14. Type in “Search” text field and 15. Assert the table contains only records with Search field value
+        steps.fillFieldSearch("ADO");
+        steps.tableContainsEntryOnlyWithFieldSearch("ADO");
+        steps.fillFieldSearch("TestNg");
+        steps.tableContainsEntryOnlyWithFieldSearch("TestNG");
 
         steps.softAssertAll();
     }

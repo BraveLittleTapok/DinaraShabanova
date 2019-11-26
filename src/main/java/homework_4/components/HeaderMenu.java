@@ -28,19 +28,6 @@ public class HeaderMenu {
                 .findBy(text(item)).click();
     }
 
-   /* public List<WebElement> getHeaderItems() {
-        return headerItems;
-    }*/
-
-    /*public WebElement getItem(final String itemOfHeaderMenu) {
-        WebElement item = null;
-        for (WebElement menuHeaderItem : headerItems) {
-            if (itemOfHeaderMenu.equalsIgnoreCase(menuHeaderItem.getText())) {
-                item = menuHeaderItem;
-            }
-        }
-        return item;
-    }*/
 
     public List<WebElement> getDropDownItems() {
         return $(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']" +

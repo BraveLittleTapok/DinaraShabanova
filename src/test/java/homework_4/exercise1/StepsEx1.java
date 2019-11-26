@@ -60,14 +60,30 @@ public class StepsEx1 extends StepsBase {
     }
 
     public void clickEntries() {
-        commonComponents.clickEntries();
+        tablePage.clickEntries();
     }
 
     public void chooseEntries(int i) {
-        commonComponents.chooseSelectOption(i);
+        tablePage.chooseSelectOption(i);
     }
 
     public void entriesIsSelect() {
-        softAssert.assertTrue(commonComponents.entriesIsSelect());
+        softAssert.assertTrue(tablePage.entriesIsSelect());
+    }
+
+    public void logRowRespondToChoosenEntrie(String logRow) {
+        softAssert.assertTrue(tablePage.logRowRespondToEntries(logRow));
+    }
+
+    public void tableHasCorrectNumberOfEntries(int i) {
+        softAssert.assertEquals(tablePage.getNumberEntriesInTable(), i);
+    }
+
+    public void fillFieldSearch(String search) {
+        tablePage.fillSearch(search);
+    }
+
+    public void tableContainsEntryOnlyWithFieldSearch(String search) {
+        softAssert.assertTrue(tablePage.tableContainsOnlySearch(search));
     }
 }
