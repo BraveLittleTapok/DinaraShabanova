@@ -14,6 +14,7 @@ public class HomePage {
 
     public HomePage() {
         page(this);
+
     }
 
     public String getTitle() {

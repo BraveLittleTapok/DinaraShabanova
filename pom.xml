@@ -97,7 +97,28 @@
                 <suite.file>src/test/resources/hw3/HM3_exercise2.xml</suite.file>
             </properties>
         </profile>
+
+        <profile>
+            <id>HM4_Exercise1</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/hw4/HM4_exercise1.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>HM4_Exercise2</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/hw4/HM4_exercise2.xml</suite.file>
+            </properties>
+        </profile>
     </profiles>
+
     <dependencies>
         <dependency>
             <groupId>com.codeborne</groupId>

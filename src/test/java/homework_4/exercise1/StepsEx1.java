@@ -42,6 +42,7 @@ public class StepsEx1 extends StepsBase {
 
     public void defaultEntriesValueShouldBe(int value) {
         softAssert.assertEquals(tablePage.getDefaultValOfEntries(), value);
+
     }
 
     public void pageHasRightSection() {
@@ -64,7 +65,7 @@ public class StepsEx1 extends StepsBase {
         softAssert.assertTrue(tablePage.entriesIsSelect());
     }
 
-    public void logRowRespondToChoosenEntrie(String logRow) {
+    public void logRowRespondToChosenEntry(String logRow) {
         softAssert.assertTrue(tablePage.logRowRespondToEntries(logRow));
     }
 
