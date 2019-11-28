@@ -1,4 +1,4 @@
-package homework_4;
+package homework_4.pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;

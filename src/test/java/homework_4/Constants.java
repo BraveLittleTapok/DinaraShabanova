@@ -11,7 +11,7 @@ public class Constants {
     public final static String HOME = "Home";
     public final static String CONTACT_FORM = "Contact form";
     public final static String SERVICE = "Service";
-    public final static String METALS_AND_COLORS = "Metals & Colors";
+    public final static String METAL_AND_COLORS = "Metals & Colors";
 
     public final static String TABLE_WITH_PAGES = "Table with pages";
     public final static List<String> listDropMenuService =

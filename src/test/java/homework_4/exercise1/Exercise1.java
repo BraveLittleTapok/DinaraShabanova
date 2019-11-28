@@ -67,14 +67,6 @@ public class Exercise1 {
         steps.chooseEntries(5);
         steps.logRowRespondToChoosenEntrie(LOG_ROW_5);
         steps.tableHasCorrectNumberOfEntries(5);
-        steps.clickEntries();
-        steps.chooseEntries(15);
-        steps.logRowRespondToChoosenEntrie(LOG_ROW_15);
-        //   steps.tableHasCorrectNumberOfEntries(15);
-        steps.clickEntries();
-        steps.chooseEntries(20);
-        steps.logRowRespondToChoosenEntrie(LOG_ROW_20);
-        //steps.tableHasCorrectNumberOfEntries(5);
 
         //14. Type in “Search” text field and 15. Assert the table contains only records with Search field value
         steps.fillFieldSearch("ADO");

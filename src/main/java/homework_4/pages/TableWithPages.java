@@ -1,4 +1,4 @@
-package homework_4.components;
+package homework_4.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -25,13 +25,16 @@ public class TableWithPages {
     @FindBy(xpath = "//select[@name='table-with-pages_length']")
     private WebElement selectElement;
 
+    @FindBy(xpath = "//label[contains(text(),'Search:')]//input[@class='uui-form-element']")
+    private WebElement fieldSerch;
+
     public int getDefaultValOfEntries() {
         return Integer.parseInt($(By.xpath("//select[@name='table-with-pages_length']/" +
                 "option")).shouldBe(visible).getText());
     }
 
     public void clickEntries() {
-        $(By.id("table-with-pages_length")).click();
+        selectElement.click();
     }
 
     public void chooseSelectOption(int i) {
@@ -54,8 +57,8 @@ public class TableWithPages {
     }
 
     public void fillSearch(String search) {
-        $(By.xpath("//label[contains(text(),'Search:')]//input[@class='uui-form-element']")).pressEscape();
-        $(By.xpath("//label[contains(text(),'Search:')]//input[@class='uui-form-element']")).sendKeys(search);
+        fieldSerch.clear();
+        fieldSerch.sendKeys(search);
     }
 
     public boolean tableContainsOnlySearch(String search) {

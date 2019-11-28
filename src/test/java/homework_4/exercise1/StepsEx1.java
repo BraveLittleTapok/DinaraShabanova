@@ -3,7 +3,7 @@ package homework_4.exercise1;
 import homework_4.StepsBase;
 import homework_4.components.CommonComponents;
 import homework_4.components.MenuLeftSection;
-import homework_4.components.TableWithPages;
+import homework_4.pages.TableWithPages;
 
 import java.util.List;
 
@@ -23,19 +23,12 @@ public class StepsEx1 extends StepsBase {
     }
 
 
-    public void clickHeaderMenu(String service) {
-        headerMenu.headerMenuItemClick(service);
-    }
-
     public void headerDropDownContainsAllElements(List<String> listDropMenuService) {
         for (String item : listDropMenuService) {
             softAssert.assertTrue(headerMenu.dropDownHasElement(item));
         }
     }
 
-    public void clickLeftMenuItem(String item) {
-        leftMenu.leftMenuItemClick(item);
-    }
 
     public void leftDropDownContainsAllElements(List<String> listDropMenuService) {
         for (String item : listDropMenuService) {
