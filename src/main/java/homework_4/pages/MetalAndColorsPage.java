@@ -132,7 +132,6 @@ public class MetalAndColorsPage {
             }
             i++;
         }
-        Collections.sort(values);
         return values;
     }
 
