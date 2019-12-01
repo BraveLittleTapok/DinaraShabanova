@@ -1,0 +1,49 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Test All">
+
+    <test name="Sum Test">
+        <classes>
+            <class name="homework_1.tests.SumTest">
+                <methods>
+                    <include name="sumTestNumberUnderMaxValue"/>
+                    <include name="sumTestNumberOverMaxValue"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+    <test name="Multiply Test">
+        <classes>
+            <class name="homework_1.tests.MultiplyTest">
+                <methods>
+                    <include name="multiplyTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+    <test name="Subtract Test">
+        <classes>
+            <class name="homework_1.tests.SubtractTest">
+                <methods>
+                    <include name="subtractTestNumberUnderMaxValue"/>
+                    <include name="subtractTestNumberOverMaxValue"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+    <test name="Divide Test">
+        <classes>
+            <class name="homework_1.tests.DivideTest">
+                <methods>
+                    <include name="divideTestWithoutDivByZero"/>
+                    <include name="divideTesDivByZero"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
