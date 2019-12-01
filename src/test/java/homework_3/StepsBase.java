@@ -1,6 +1,7 @@
 package homework_3;
 
 import homework_3.components.HeaderMenu;
+import homework_3.components.User;
 import org.openqa.selenium.WebDriver;
 
 import static org.testng.Assert.assertEquals;
@@ -12,10 +13,13 @@ public class StepsBase {
 
     protected HomePage homePage;
     protected HeaderMenu headerMenu;
+    protected User user;
 
     public StepsBase(WebDriver driver) {
         this.homePage = new HomePage(driver);
         this.headerMenu = new HeaderMenu(driver);
+        this.headerMenu = new HeaderMenu(driver);
+        this.user = new User(driver);
     }
 
     public void openEpamJdiSite() {
@@ -23,10 +27,10 @@ public class StepsBase {
     }
 
     public void login(final String username, final String password) {
-        homePage.userIconClick();
-        homePage.fillLoginField(username);
-        homePage.fillPasswordField(password);
-        homePage.clickLoginButton();
+        user.userIconClick();
+        user.fillLoginField(username);
+        user.fillPasswordField(password);
+        user.clickLoginButton();
     }
 
     public void headerMenuItemClick(final String item) {
@@ -34,7 +38,7 @@ public class StepsBase {
     }
 
     public void usernameOnTheHomePageShouldBe(final String username) {
-        assertEquals(homePage.getUsernameLabelText(), username);
+        assertEquals(user.getUsernameLabelText(), username);
     }
 
 }
