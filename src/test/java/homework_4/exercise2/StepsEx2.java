@@ -82,40 +82,56 @@ public class StepsEx2 extends StepsBase {
 
     }
 
-    public void equalsResults(Result actual, Result expected) {
-        expected = colorsPage.getActualResult();
+    public void createClickFromInData(Result actual) {
         if (actual.getSummary() != null) {
             int sum = 0;
             for (int i : actual.getSummary()) {
                 colorsPage.chooseSummary(Summary.getStringValueForHTML(i));
-                sum += actual.getSummary().get(i);
             }
-            softAssert.assertEquals(sum, Math.toIntExact(expected.getSummary().get(0)));
         }
         if (actual.getElements() != null) {
             for (String str : actual.getElements()) {
                 colorsPage.chooseElements(str);
             }
-            softAssert.assertTrue(arraysEquals(actual.getElements(), expected.getElements()));
         }
         if (actual.getColor() != null) {
             colorsPage.click(COLORS);
             colorsPage.chooseColors(actual.getColor());
-            softAssert.assertEquals(actual.getColor(), expected.getColor());
         }
         if (actual.getVegetables() != null) {
             colorsPage.click(VEGETABLES_ENTITY);
             for (String str : actual.getVegetables()) {
                 colorsPage.chooseVegetables(str);
             }
-            softAssert.assertTrue(arraysEquals(actual.getVegetables(), expected.getVegetables()));
         }
         if (actual.getMetals() != null) {
             colorsPage.click(METALS);
             colorsPage.chooseMetals(actual.getMetals());
+        }
+        colorsPage.click(SUBMIT);
+    }
+
+    public void equalsResults(Result actual) {
+        Result expected = colorsPage.getActualResult();
+        if (actual.getSummary() != null) {
+            int sum = 0;
+            for (int i = 0; i < actual.getSummary().size(); i++) {
+                sum += actual.getSummary().get(i);
+            }
+            softAssert.assertEquals(sum, Math.toIntExact(expected.getSummary().get(0)));
+        }
+        if (actual.getElements() != null) {
+            softAssert.assertTrue(arraysEquals(actual.getElements(), expected.getElements()));
+        }
+        if (actual.getColor() != null) {
+            softAssert.assertEquals(actual.getColor(), expected.getColor());
+        }
+        if (actual.getVegetables() != null) {
+            softAssert.assertTrue(arraysEquals(actual.getVegetables(), expected.getVegetables()));
+        }
+        if (actual.getMetals() != null) {
             softAssert.assertEquals(actual.getMetals(), expected.getMetals());
         }
-
     }
 
     private boolean arraysEquals(List<String> arr1, List<String> arr2) {

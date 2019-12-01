@@ -47,7 +47,7 @@ public class MetalAndColorsPage {
     }
 
     public void chooseElements(String item) {
-        colors.findElement(By.xpath("//label[@for='" + item + "']")).click();
+        colors.findElement(By.xpath(" //label[contains(text(),'" + item + "')]")).click();
     }
 
     public void chooseMetals(String item) {
@@ -55,7 +55,8 @@ public class MetalAndColorsPage {
     }
 
     public void chooseVegetables(String item) {
-        vegetables.findElement(By.xpath("//label[@for='" + item + "']")).click();
+        vegetables.findElement(By.xpath("//a[contains(@class,'checkbox')]" +
+                "//label[contains(text(),'" + item + "')]")).click();
     }
 
     public void chooseColors(String item) {
@@ -91,7 +92,7 @@ public class MetalAndColorsPage {
         List<Integer> summary = null;
         String color = null;
         String metals = null;
-        List<String> elements = null ;
+        List<String> elements = null;
         List<String> vegetables = null;
 
         ElementsCollection listResult = $$(By.xpath("//ul[contains(@class,'panel-body-list results')]/li"));

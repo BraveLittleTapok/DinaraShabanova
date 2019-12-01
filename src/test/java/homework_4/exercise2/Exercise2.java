@@ -20,7 +20,7 @@ public class Exercise2 {
     public final static String METAL_AND_COLORS = "Metals & Colors";
 
     @Test(dataProvider = "DataProviderForResult", dataProviderClass = DataProviderResult.class)
-    public void exercise2(Result actual, Result expected) throws IOException {
+    public void exercise2(Result actual) throws IOException {
         // 1. open site
         Configuration.startMaximized = true;
         open(URL_HOME_PAGE);
@@ -57,7 +57,8 @@ public class Exercise2 {
                 .build();
         steps.resultContains(expectedResult);*/
 
-        steps.equalsResults(actual, expected);
+        steps.createClickFromInData(actual);
+        steps.equalsResults(actual);
         //2 Earth;  Yellow;  Gold
         /*
         steps.refreshPage();

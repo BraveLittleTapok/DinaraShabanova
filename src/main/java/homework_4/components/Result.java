@@ -84,4 +84,6 @@ public class Result {
             return new Result(this.summary, this.color, this.metals, this.vegetables, this.elements);
         }
     }
+
+
 }

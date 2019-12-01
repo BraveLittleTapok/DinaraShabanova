@@ -23,6 +23,9 @@ public class HomePage {
 
     public void login(final String username, final String password) {
         $(By.id("user-icon")).click();
+        if (!getUsernameLabelText().getText().isEmpty()) {
+            $(By.xpath("//div[@class='logout']//button[contains(@class,'btn-login')]")).click();
+        }
         $(By.id("name")).sendKeys(username);
         $(By.id("password")).sendKeys(password);
         $(By.id("login-button")).click();
