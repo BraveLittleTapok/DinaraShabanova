@@ -32,7 +32,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/hw1/SuiteTestSumAndSubtract.xml</suite.file>
+                <suite.file>src/test/resources/SuiteTestSumAndSubtract.xml</suite.file>
             </properties>
         </profile>
 
@@ -42,7 +42,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/hw1/SuiteTestMultAndDiv.xml</suite.file>
+                <suite.file>src/test/resources/SuiteTestMultAndDiv.xml</suite.file>
             </properties>
         </profile>
 
@@ -52,7 +52,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/hw1/AllTestsSuite.xml</suite.file>
+                <suite.file>src/test/resources/AllTestsSuite.xml</suite.file>
             </properties>
         </profile>
 
@@ -62,7 +62,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/hw2/HM2_exercise1.xml</suite.file>
+                <suite.file>src/test/resources/HM2_exercise1.xml</suite.file>
             </properties>
         </profile>
 
@@ -72,29 +72,10 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/hw2/HM2_exercise2.xml</suite.file>
+                <suite.file>src/test/resources/HM2_exercise2.xml</suite.file>
             </properties>
         </profile>
 
-        <profile>
-            <id>HM3_Exercise1</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suite.file>src/test/resources/hw3/HM3_exercise1.xml</suite.file>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>HM3_Exercise2</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suite.file>src/test/resources/hw3/HM3_exercise2.xml</suite.file>
-            </properties>
-        </profile>
     </profiles>
     <dependencies>
 
