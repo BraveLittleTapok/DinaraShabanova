@@ -7,16 +7,9 @@ import org.testng.annotations.Test;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Properties;
 
 import static com.codeborne.selenide.Selenide.open;
-import static homework_4.components.Entity.*;
-import static homework_4.exercise2.ConstantsForPageMetalAndColors.Colors.*;
-import static homework_4.exercise2.ConstantsForPageMetalAndColors.Elements.*;
-import static homework_4.exercise2.ConstantsForPageMetalAndColors.Metals.*;
-import static homework_4.exercise2.ConstantsForPageMetalAndColors.Summary.*;
-import static homework_4.exercise2.ConstantsForPageMetalAndColors.Vegetables.*;
 /**
  * Created by Dinara Shabanova on 28.11.2019.
  */
@@ -26,8 +19,8 @@ public class Exercise2 {
     private static final String URL_HOME_PAGE = "https://epam.github.io/JDI/index.html";
     public final static String METAL_AND_COLORS = "Metals & Colors";
 
-    @Test
-    public void exercise2() throws IOException {
+    @Test(dataProvider = "DataProviderForResult", dataProviderClass = DataProviderResult.class)
+    public void exercise2(Result actual, Result expected) throws IOException {
         // 1. open site
         Configuration.startMaximized = true;
         open(URL_HOME_PAGE);
@@ -50,6 +43,7 @@ public class Exercise2 {
         StepsEx2 steps = new StepsEx2();
         //1
 
+        steps.refreshPage();/*
         steps.summaryChoose(THREE);
         steps.summaryChoose(EIGHT);
         steps.clickDropdown(VEGETABLES_ENTITY);
@@ -61,8 +55,11 @@ public class Exercise2 {
                 .setSummary(11)
                 .setVegetables(Arrays.asList("Cucumber", "Tomato"))
                 .build();
-        steps.resultContains(expectedResult);
+        steps.resultContains(expectedResult);*/
+
+        steps.equalsResults(actual, expected);
         //2 Earth;  Yellow;  Gold
+        /*
         steps.refreshPage();
         steps.elementsChoose(EARTH);
         steps.clickDropdown(COLORS);
@@ -97,7 +94,11 @@ public class Exercise2 {
                 .setMetals("Bronze")
                 .setVegetables(Arrays.asList("Onion"))
                 .build();
+
         steps.resultContains(expectedResult);
+
+
+/*
 
         //4 (6, 5); Watter; Green; Selen; Vegetables: All checkboxes;
         steps.refreshPage();
@@ -141,7 +142,7 @@ public class Exercise2 {
                 .setVegetables(Arrays.asList("Cucumber", "Tomato", "Vegetables"))
                 .build();
         steps.resultContains(expectedResult);
-
+*/
         steps.softAssertAll();
     }
 }

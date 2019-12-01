@@ -1,5 +1,6 @@
 package homework_4.pages;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import homework_4.components.Entity;
 import homework_4.components.Result;
@@ -10,6 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.*;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.page;
 
 /**
@@ -49,7 +51,7 @@ public class MetalAndColorsPage {
     }
 
     public void chooseMetals(String item) {
-        colors.findElement(By.xpath("//span[@class='text'][contains(text(),'" + item + "')]")).click();
+        colors.findElement(By.xpath("//span[contains(@class,'text')][contains(text(),'" + item + "')]")).click();
     }
 
     public void chooseVegetables(String item) {
@@ -86,24 +88,27 @@ public class MetalAndColorsPage {
     }
 
     public Result getActualResult() {
-        int summary = 0;
+        List<Integer> summary = null;
         String color = null;
         String metals = null;
-        List<String> elements = null;
-        List<String> vegetables = new ArrayList<>();
+        List<String> elements = null ;
+        List<String> vegetables = null;
 
-        List<WebElement> listResult = $(By.xpath("//ul[@class='panel-body-list results']")).findElements(By.tagName("li"));
+        ElementsCollection listResult = $$(By.xpath("//ul[contains(@class,'panel-body-list results')]/li"));
         for (WebElement el : listResult) {
-            if (el.getText().contains("Summary")) {
-                summary = Integer.parseInt(getValueFromActualResult(el.getText()).get(0).trim());
-            } else if (el.getText().contains("Color")) {
+            String[] firstWord = el.getText().split(":");
+            if (("Summary").equals(firstWord[0])) {
+                summary = new ArrayList<>();
+                summary.add(Integer.parseInt(getValueFromActualResult(el.getText()).get(0).trim()));
+            } else if (("Color").equals(firstWord[0])) {
                 color = getValueFromActualResult(el.getText()).get(0).trim();
-            } else if (el.getText().contains("Metal")) {
+            } else if (("Metal").equals(firstWord[0])) {
                 metals = getValueFromActualResult(el.getText()).get(0).trim();
-            } else if (el.getText().contains("Elements")) {
+            } else if (("Elements").equals(firstWord[0])) {
                 elements = new ArrayList<>();
                 elements.addAll(getValueFromActualResult(el.getText()));
-            } else if (el.getText().contains("Vegetables")) {
+            } else if (("Vegetables").equals(firstWord[0])) {
+                vegetables = new ArrayList<>();
                 vegetables.addAll(getValueFromActualResult(el.getText()));
             }
         }

@@ -1,17 +1,28 @@
 package homework_4.exercise2.ConstantsForPageMetalAndColors;
 
-/**
- * Created by dinar on 23.11.2019.
- */
+
 public class Summary {
 
-    public final static String ONE = "p1";
-    public final static String TWO = "p5";
-    public final static String THREE = "p2";
-    public final static String FOUR = "p6";
-    public final static String FIVE = "p3";
-    public final static String SIX = "p7";
-    public final static String SEVEN = "p4";
-    public final static String EIGHT = "p8";
-
+    public static String getStringValueForHTML(int value) {
+        switch (value) {
+            case 1:
+                return "p1";
+            case 2:
+                return "p5";
+            case 3:
+                return "p2";
+            case 4:
+                return "p6";
+            case 5:
+                return "p3";
+            case 6:
+                return "p7";
+            case 7:
+                return "p4";
+            case 8:
+                return "p8";
+            default:
+                return null;
+        }
+    }
 }

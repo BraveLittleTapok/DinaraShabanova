@@ -38,12 +38,12 @@ public class Exercise1 {
         //5. Click on "Service" subcategory in the header
         // and check that drop down contains options
         steps.clickHeaderMenu(SERVICE);
-        steps.headerDropDownContainsAllElements(listDropMenuService);
+        steps.headerDropDownContainsAllElements(LIST_DROP_MENU_SERVICE);
 
         //6. Click on Service subcategory in the left section
         // and check that drop down contains options
         steps.clickLeftMenuItem(SERVICE);
-        steps.leftDropDownContainsAllElements(listDropMenuService);
+        steps.leftDropDownContainsAllElements(LIST_DROP_MENU_SERVICE);
 
         //7. Open through the header menu Service -> Table with pages
         steps.clickHeaderMenu(SERVICE);

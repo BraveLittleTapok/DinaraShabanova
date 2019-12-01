@@ -1,12 +1,11 @@
 package homework_4.components;
 
+import com.codeborne.selenide.ElementsCollection;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.page;
 
 /**
  * Created by dinar on 23.11.2019.
@@ -18,20 +17,19 @@ public class HeaderMenu {
     }
 
     public void headerMenuItemClick(final String itemOfHeaderMenu) {
-        $$(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']/li"))
+        $$(By.xpath("//ul[contains(@class,'navbar-nav m-l8')]/li"))
                 .findBy(text(itemOfHeaderMenu)).click();
     }
 
     public void dropDownMenuItemClick(final String item) {
-        $$(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']" +
+        $$(By.xpath("//ul[contains(@class,'navbar-nav m-l8')]" +
                 "/li[@class='dropdown open']/ul/li"))
                 .findBy(text(item)).click();
     }
 
-
-    public List<WebElement> getDropDownItems() {
-        return $(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']" +
-                "/li[@class='dropdown open']/ul")).findElements(By.tagName("li"));
+    public ElementsCollection getDropDownItems() {
+        return $$(By.xpath("//ul[contains(@class,'navbar-nav m-l8')]" +
+                "/li[@class='dropdown open']/ul/li"));
     }
 
     public boolean dropDownHasElement(String item) {

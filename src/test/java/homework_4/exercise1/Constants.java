@@ -11,7 +11,7 @@ public class Constants {
     public final static String SERVICE = "Service";
 
     public final static String TABLE_WITH_PAGES = "Table with pages";
-    public final static List<String> listDropMenuService =
+    public final static List<String> LIST_DROP_MENU_SERVICE =
             Arrays.asList("Support", "Dates", "Complex Table", "Simple Table",
                     "Table with pages", "Different elements", "Performance");
 

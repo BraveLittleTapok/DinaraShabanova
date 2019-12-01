@@ -18,11 +18,11 @@ public class MenuLeftSection {
     }
 
     public void leftMenuItemClick(final String itemOfLeftMenu) {
-        $$(By.xpath("//ul[@class='sidebar-menu']/li")).findBy(text(itemOfLeftMenu)).click();
+        $$(By.xpath("//ul[contains(@class,'sidebar-menu')]/li")).findBy(text(itemOfLeftMenu)).click();
     }
 
     public List<WebElement> getLeftSectionItems() {
-        return $(By.xpath("//ul[@class='sidebar-menu']")).findElements(By.tagName("li"));
+        return $(By.xpath("//ul[contains(@class,'sidebar-menu')]")).findElements(By.tagName("li"));
     }
 
     public boolean dropDownHasElement(String item) {
