@@ -9,7 +9,7 @@ import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
-import static homework_3.Constants.listDropMenuService;
+import static homework_3.Constants.LIST_DROP_MENU_SERVICE;
 
 /**
  * Created by dinar on 23.11.2019.
@@ -28,7 +28,7 @@ public class StepsEx2 extends StepsBase {
     @Override
     public void headerMenuItemClick(final String item) {
         boolean flag = false;
-        for (String element : listDropMenuService) {
+        for (String element : LIST_DROP_MENU_SERVICE) {
             if (element.equalsIgnoreCase(item)) {
                 headerMenu.dropDownMenuItemClick(item);
                 flag = true;
