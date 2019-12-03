@@ -33,7 +33,7 @@ public class Constants {
             " VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.";
 
     public final static String DIFFER_ELEMENETS = "Different Elements";
-    public final static List<String> listDropMenuService =
+    public final static List<String> LIST_DROP_MENU_SERVICE =
             Arrays.asList("Support", "Dates", "Complex Table", "Simple Table",
                     "Table with pages", "Different elements");
 

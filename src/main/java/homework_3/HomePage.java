@@ -1,6 +1,5 @@
 package homework_3;
 
-import homework_3.components.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,8 +10,6 @@ import org.openqa.selenium.support.FindBy;
 public class HomePage extends AbstractBasePage {
 
     private static final String URL = "https://epam.github.io/JDI/index.html";
-
-    private User user = new User(driver);
 
     @FindBy(id = "mCSB_1")
     private WebElement leftSection;
@@ -29,28 +26,28 @@ public class HomePage extends AbstractBasePage {
     @FindBy(id = "epam_logo")
     private WebElement epamLogo;
 
-    @FindBy(xpath = "//div[@class='col-sm-3']//span[@class='icons-benefit icon-practise']")
+    @FindBy(xpath = "//div[@class='col-sm-3']//span[contains(@class,'icon-practise')]")
     private WebElement firstCenterImg;
 
-    @FindBy(xpath = "//div[@class='col-sm-3']//span[@class='icons-benefit icon-custom']")
+    @FindBy(xpath = "//div[@class='col-sm-3']//span[contains(@class,'icon-custom')]")
     private WebElement secondCenterImg;
 
-    @FindBy(xpath = "//div[@class='col-sm-3']//span[@class='icons-benefit icon-multi']")
+    @FindBy(xpath = "//div[@class='col-sm-3']//span[contains(@class,'icon-multi')]")
     private WebElement thirdCenterImg;
 
-    @FindBy(xpath = "//div[@class='col-sm-3']//span[@class='icons-benefit icon-base']")
+    @FindBy(xpath = "//div[@class='col-sm-3']//span[contains(@class,'icon-base')]")
     private WebElement fourthCenterImg;
 
-    @FindBy(xpath = "//div[@class='row clerafix benefits']//span[contains(text(), 'To include good practices')]")
+    @FindBy(xpath = "//div[contains(@class,'row clerafix benefits')]//span[contains(text(), 'To include good practices')]")
     private WebElement firstTextCenterImg;
 
-    @FindBy(xpath = "//div[@class='row clerafix benefits']//span[contains(text(), 'To be flexible and')]")
+    @FindBy(xpath = "//div[contains(@class,'row clerafix benefits')]//span[contains(text(), 'To be flexible and')]")
     private WebElement secondTextCenterImg;
 
-    @FindBy(xpath = "//div[@class='row clerafix benefits']//span[contains(text(), 'To be multiplatform')]")
+    @FindBy(xpath = "//div[contains(@class,'row clerafix benefits')]//span[contains(text(), 'To be multiplatform')]")
     private WebElement thirdTextCenterImg;
 
-    @FindBy(xpath = "//div[@class='row clerafix benefits']//span[contains(text(), 'Already have good base')]")
+    @FindBy(xpath = "//div[contains(@class,'row clerafix benefits')]//span[contains(text(), 'Already have good base')]")
     private WebElement fourthTextCenterImg;
 
     @FindBy(name = "main-title")
@@ -65,26 +62,6 @@ public class HomePage extends AbstractBasePage {
 
     public void open() {
         driver.get(URL);
-    }
-
-    public void userIconClick() {
-        user.getUserIcon().click();
-    }
-
-    public void fillLoginField(String username) {
-        user.getUsernameTextField().sendKeys(username);
-    }
-
-    public void fillPasswordField(String password) {
-        user.getPasswordTextField().sendKeys(password);
-    }
-
-    public void clickLoginButton() {
-        user.getLoginButton().click();
-    }
-
-    public String getUsernameLabelText() {
-        return user.getUsernameLabel().getText();
     }
 
     public WebElement getFirstCenterImg() {
@@ -135,7 +112,7 @@ public class HomePage extends AbstractBasePage {
         return frame;
     }
 
-    public WebElement getEpamLogo() {
+    public WebElement getLogoFrame() {
         return epamLogo;
     }
 

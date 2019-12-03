@@ -2,7 +2,6 @@ package homework_3.ex1;
 
 import homework_3.StepsBase;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import static homework_3.Constants.*;
 import static org.testng.Assert.assertEquals;
@@ -15,10 +14,6 @@ public class StepsEx1 extends StepsBase {
 
     public StepsEx1(WebDriver driver) {
         super(driver);
-    }
-
-    public WebElement getItemOfHeaderMenu(final String item) {
-        return headerMenu.getItem(item);
     }
 
     public void imagesFromHomePagesAreDisplayed() {
@@ -44,36 +39,45 @@ public class StepsEx1 extends StepsBase {
         }
     }
 
-    public WebElement getMainTitle() {
-        return homePage.getMainTitle();
-    }
-
-    public WebElement getTextUnderMainTitle() {
-        return homePage.getTextUnderMainTitle();
-    }
-
     public void openFrame() {
         homePage.openFrame();
     }
 
-    public WebElement getFrame() {
-        return homePage.getFrame();
+    public void itemOfHeaderMenuIsDisplayedAndShouldBe(String itemDisplayed, String text) {
+        assertTrue(headerMenu.getItem(itemDisplayed).isDisplayed() &
+                headerMenu.getItem(itemDisplayed).getText().equals(text));
     }
 
-    public WebElement getLogoFrame() {
-        return homePage.getEpamLogo();
+    public void mainTitleIsDisplayedAndShouldBe(String s) {
+        assertTrue(homePage.getMainTitle().isDisplayed() & homePage.getMainTitle().getText().equals(s));
+
     }
 
-    public WebElement getLinkGithub() {
-        return homePage.getLinkGithub();
+    public void textUndermainTitleShouldBe(String textUnderMainTitle) {
+        assertTrue(homePage.getTextUnderMainTitle().getText().equals(textUnderMainTitle));
     }
 
-    public WebElement getFooter() {
-        return homePage.getFooter();
+    public void frameIsDiaplayed() {
+        assertTrue(homePage.getFrame().isDisplayed());
     }
 
-    public WebElement getLeftSection() {
-        return homePage.getLeftSection();
+    public void logoIsDisplayed() {
+        assertTrue(homePage.getLogoFrame().isDisplayed());
     }
 
+    public void textOfSubHeaderShouldBe(String s) {
+        assertEquals(homePage.getLinkGithub().getText(), s);
+    }
+
+    public void linkHasProperURL(String s) {
+        assertEquals(homePage.getLinkGithub().getAttribute("href"), s);
+    }
+
+    public void leftSectionIsDisplayed() {
+        assertTrue(homePage.getLeftSection().isDisplayed());
+    }
+
+    public void footerIsDisplayed() {
+        assertTrue(homePage.getFooter().isDisplayed());
+    }
 }

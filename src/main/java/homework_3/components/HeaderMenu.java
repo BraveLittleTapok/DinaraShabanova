@@ -19,10 +19,10 @@ public class HeaderMenu {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//ul[@class='uui-navigation nav navbar-nav m-l8']/li")
+    @FindBy(xpath = "//ul[contains(@class,'navbar-nav m-l8')]/li")
     private List<WebElement> headerItems;
 
-    @FindBy(xpath = "//ul[@class='uui-navigation nav navbar-nav m-l8']/li[@class='dropdown open']/ul/li")
+    @FindBy(xpath = "//ul[contains(@class,'navbar-nav m-l8')]/li[@class='dropdown open']/ul/li")
     private List<WebElement> dropDownItems;
 
     public void headerMenuItemClick(final String itemOfHeaderMenu) {

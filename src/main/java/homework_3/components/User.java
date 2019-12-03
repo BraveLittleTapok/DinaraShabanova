@@ -34,24 +34,25 @@ public class User {
     @FindBy(id = "user-name")
     private WebElement usernameLabel;
 
-    public WebElement getUserIcon() {
-        return userIcon;
+    public void userIconClick() {
+        userIcon.click();
     }
 
-    public WebElement getUsernameTextField() {
-        return usernameTextField;
+    public void fillLoginField(String username) {
+        usernameTextField.sendKeys(username);
     }
 
-    public WebElement getPasswordTextField() {
-        return passwordTextField;
+    public void fillPasswordField(String password) {
+        passwordTextField.sendKeys(password);
     }
 
-    public WebElement getLoginButton() {
-        return loginButton;
+    public void clickLoginButton() {
+        loginButton.click();
     }
 
-    public WebElement getUsernameLabel() {
-        return usernameLabel;
+    public String getUsernameLabelText() {
+        return usernameLabel.getText();
     }
+
 
 }
