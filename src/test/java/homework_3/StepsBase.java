@@ -2,6 +2,7 @@ package homework_3;
 
 import homework_3.components.HeaderMenu;
 import homework_3.components.User;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 
 import static org.testng.Assert.assertEquals;
@@ -22,10 +23,12 @@ public class StepsBase {
         this.user = new User(driver);
     }
 
+    @Step("I open EPAM JDI Site")
     public void openEpamJdiSite() {
         homePage.open();
     }
 
+    @Step("I login as '{0}' with password '{1}'")
     public void login(final String username, final String password) {
         user.userIconClick();
         user.fillLoginField(username);
@@ -33,10 +36,12 @@ public class StepsBase {
         user.clickLoginButton();
     }
 
+    @Step("I click item '{0}' on the Header Menu")
     public void headerMenuItemClick(final String item) {
         headerMenu.headerMenuItemClick(item);
     }
 
+    @Step("Username should be '{0}' on the Home Page")
     public void usernameOnTheHomePageShouldBe(final String username) {
         assertEquals(user.getUsernameLabelText(), username);
     }

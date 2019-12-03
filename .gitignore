@@ -3,3 +3,5 @@ target
 .idea
 etc.
 build
+allure-results
+*.allure
