@@ -20,7 +20,7 @@
             </class>
         </classes>
     </test>
-
+    <!--
     <test name="Exercise1">
         <classes>
             <class name="homework_4.exercise1.Exercise1">
@@ -40,5 +40,5 @@
             </class>
         </classes>
     </test>
-
+-->
 </suite>
