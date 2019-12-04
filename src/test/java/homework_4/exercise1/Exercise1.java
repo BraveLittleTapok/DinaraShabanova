@@ -1,6 +1,8 @@
 package homework_4.exercise1;
 
 import com.codeborne.selenide.Configuration;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 
 import java.io.FileInputStream;
@@ -17,6 +19,8 @@ public class Exercise1 {
     private static final String PATH_TO_PROPERTIES = "src/main/resources/hw3/UserData.properties";
     private static final String URL_HOME_PAGE = "https://epam.github.io/JDI/index.html";
 
+    @Feature("Exercise 1")
+    @Story("homework_2")
     @Test
     public void exercise1() throws IOException {
         // 1. open site

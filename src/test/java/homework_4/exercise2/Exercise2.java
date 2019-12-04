@@ -3,6 +3,8 @@ package homework_4.exercise2;
 import com.codeborne.selenide.Configuration;
 import homework_4.StepsBase;
 import homework_4.components.Result;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 
 import java.io.FileInputStream;
@@ -19,6 +21,8 @@ public class Exercise2 {
     private static final String URL_HOME_PAGE = "https://epam.github.io/JDI/index.html";
     public final static String METAL_AND_COLORS = "Metals & Colors";
 
+    @Feature("Exercise 2")
+    @Story("homework_2")
     @Test(dataProvider = "DataProviderForResult", dataProviderClass = DataProviderResult.class)
     public void exercise2(Result actual) throws IOException {
         // 1. open site

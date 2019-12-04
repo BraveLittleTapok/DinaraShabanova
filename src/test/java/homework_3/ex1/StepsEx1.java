@@ -59,30 +59,37 @@ public class StepsEx1 extends StepsBase {
 
     }
 
+    @Step("Text under Main title should be '{0}'")
     public void textUndermainTitleShouldBe(String textUnderMainTitle) {
         assertTrue(homePage.getTextUnderMainTitle().getText().equals(textUnderMainTitle));
     }
 
+    @Step("Frame should be displayed")
     public void frameIsDiaplayed() {
         assertTrue(homePage.getFrame().isDisplayed());
     }
 
+    @Step("Logo of the frame should be displayed")
     public void logoIsDisplayed() {
         assertTrue(homePage.getLogoFrame().isDisplayed());
     }
 
+    @Step("Text of sub header should of the main title be '{0}'")
     public void textOfSubHeaderShouldBe(String s) {
         assertEquals(homePage.getLinkGithub().getText(), s);
     }
 
+    @Step("Link Github should be '{0}'")
     public void linkHasProperURL(String s) {
         assertEquals(homePage.getLinkGithub().getAttribute("href"), s);
     }
 
+    @Step("Left section should be displayed")
     public void leftSectionIsDisplayed() {
         assertTrue(homePage.getLeftSection().isDisplayed());
     }
 
+    @Step("Footer section should be displayed")
     public void footerIsDisplayed() {
         assertTrue(homePage.getFooter().isDisplayed());
     }
