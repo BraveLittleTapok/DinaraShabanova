@@ -34,7 +34,7 @@
         <profile>
             <id>sumAndSub</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.file>src/test/resources/hw1/SuiteTestSumAndSubtract.xml</suite.file>
@@ -124,7 +124,7 @@
         <profile>
             <id>HM5_Exercise1</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
                 <suite.file>src/test/resources/hw5/HM5_exercise1.xml</suite.file>
