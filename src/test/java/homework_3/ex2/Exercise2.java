@@ -1,6 +1,8 @@
 package homework_3.ex2;
 
 import homework_3.AbstractBaseTest;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -26,6 +28,8 @@ public class Exercise2 extends AbstractBaseTest {
         steps = new StepsEx2(driver);
     }
 
+    @Feature("Exercise 2")
+    @Story("homework_1")
     @Test
     public void testExercise2() throws IOException {
         SoftAssert softAssert = new SoftAssert();

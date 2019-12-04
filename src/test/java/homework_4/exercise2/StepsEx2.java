@@ -4,6 +4,7 @@ import homework_4.StepsBase;
 import homework_4.components.Result;
 import homework_4.exercise2.ConstantsForPageMetalAndColors.Summary;
 import homework_4.pages.MetalAndColorsPage;
+import io.qameta.allure.Step;
 
 import java.util.List;
 
@@ -22,11 +23,13 @@ public class StepsEx2 extends StepsBase {
         this.colorsPage = new MetalAndColorsPage();
     }
 
+    @Step("I reload page")
     public void refreshPage() {
         colorsPage.reloadPage();
     }
 
 
+    @Step("I choose items on the page 'Metal and Colors'")
     public void createClickFromInData(Result actual) {
         if (actual.getSummary() != null) {
             for (int i : actual.getSummary()) {
@@ -55,6 +58,7 @@ public class StepsEx2 extends StepsBase {
         colorsPage.click(SUBMIT);
     }
 
+    @Step("Actual results should be equals to expected results")
     public void equalsResults(Result actual) {
         Result expected = colorsPage.getActualResult();
         if (actual.getSummary() != null) {

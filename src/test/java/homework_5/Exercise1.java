@@ -1,9 +1,11 @@
-package homework_3.ex1;
+package homework_5;
 
 import homework_3.AbstractBaseTest;
+import homework_3.ex1.StepsEx1;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.testng.AllureTestNg;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.io.FileInputStream;
@@ -16,6 +18,7 @@ import static org.testng.Assert.assertEquals;
 /**
  * Created by dinar on 23.11.2019.
  */
+@Listeners({AllureTestNg.class, AttachmentListener.class})
 public class Exercise1 extends AbstractBaseTest {
 
     private StepsEx1 steps;
@@ -29,9 +32,8 @@ public class Exercise1 extends AbstractBaseTest {
     }
 
     @Feature("Exercise 1")
-    @Story("homework_1")
     @Test
-    public void testExercise1() throws IOException {
+    public void testExercise1FromHW3() throws IOException {
 
         // 1. open site
         steps.openEpamJdiSite();
@@ -45,7 +47,8 @@ public class Exercise1 extends AbstractBaseTest {
         steps.login(userData.getProperty("login"), userData.getProperty("password"));
 
         // 4.Logined user's name is display correctly
-        steps.usernameOnTheHomePageShouldBe("PITER CHAILOVSKII");
+        //FAIL
+        steps.usernameOnTheHomePageShouldBe("PITER CHAILOVSKII1");
 
         //6.Menu buttons are displayed and have proper texts "HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"
         steps.itemOfHeaderMenuIsDisplayedAndShouldBe(HOME, "HOME");
@@ -57,7 +60,8 @@ public class Exercise1 extends AbstractBaseTest {
         steps.imagesFromHomePagesAreDisplayed();
 
         //8. Texts are displayed and equal to expected under images
-        steps.textOfImgFromHomePageShouldBe(PRACTISE_FIRST);
+        //FAIL
+        steps.textOfImgFromHomePageShouldBe("fail for first Image");
         steps.textOfImgFromHomePageShouldBe(CUSTOM_SECOND);
         steps.textOfImgFromHomePageShouldBe(MULTI_THIRD);
         steps.textOfImgFromHomePageShouldBe(BASE_FOURTH);
@@ -79,7 +83,8 @@ public class Exercise1 extends AbstractBaseTest {
         steps.textOfSubHeaderShouldBe("JDI GITHUB");
 
         //14.Assert that JDI GITHUB is a link and has a proper URL
-        steps.linkHasProperURL("https://github.com/epam/JDI");
+        //FAIL
+        steps.linkHasProperURL("https://github.com/epam/JDIFail");
 
         //15. Assert that there is Left Section
         steps.leftSectionIsDisplayed();
