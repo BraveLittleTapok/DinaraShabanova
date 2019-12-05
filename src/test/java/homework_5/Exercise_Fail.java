@@ -60,8 +60,7 @@ public class Exercise_Fail extends AbstractBaseTest {
         steps.imagesFromHomePagesAreDisplayed();
 
         //8. Texts are displayed and equal to expected under images
-        //FAIL
-        steps.textOfImgFromHomePageShouldBe("fail for first Image");
+        steps.textOfImgFromHomePageShouldBe(PRACTISE_FIRST);
         steps.textOfImgFromHomePageShouldBe(CUSTOM_SECOND);
         steps.textOfImgFromHomePageShouldBe(MULTI_THIRD);
         steps.textOfImgFromHomePageShouldBe(BASE_FOURTH);
@@ -83,8 +82,7 @@ public class Exercise_Fail extends AbstractBaseTest {
         steps.textOfSubHeaderShouldBe("JDI GITHUB");
 
         //14.Assert that JDI GITHUB is a link and has a proper URL
-        //FAIL
-        steps.linkHasProperURL("https://github.com/epam/JDIFail");
+        steps.linkHasProperURL("https://github.com/epam/JDI");
 
         //15. Assert that there is Left Section
         steps.leftSectionIsDisplayed();
