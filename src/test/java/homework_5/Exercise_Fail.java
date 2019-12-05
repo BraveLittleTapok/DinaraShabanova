@@ -3,6 +3,7 @@ package homework_5;
 import homework_3.AbstractBaseTest;
 import homework_3.ex1.StepsEx1;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import io.qameta.allure.testng.AllureTestNg;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
@@ -31,7 +32,8 @@ public class Exercise_Fail extends AbstractBaseTest {
         steps = new StepsEx1(driver);
     }
 
-    @Feature("Exercise 1")
+    @Feature("Exercise_FAIL")
+    @Story("exercise_1")
     @Test
     public void ExerciseFailTest() throws IOException {
 

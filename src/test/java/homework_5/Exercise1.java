@@ -29,8 +29,8 @@ public class Exercise1 extends AbstractBaseTest {
         steps = new StepsEx1(driver);
     }
 
-    @Feature("Exercise 1")
-    @Story("homework_1")
+    @Feature("Exercise_NOT_FAIL")
+    @Story("exercise_1")
     @Test
     public void Exercise1Test() throws IOException {
 

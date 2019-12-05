@@ -29,8 +29,8 @@ public class Exercise2 extends AbstractBaseTest {
         steps = new StepsEx2(driver);
     }
 
-    @Feature("Exercise 2")
-    @Story("homework_1")
+    @Feature("Exercise_NOT_FAIL")
+    @Story("exercise_2")
     @Test
     public void Exercise2Test() throws IOException {
         SoftAssert softAssert = new SoftAssert();
