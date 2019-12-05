@@ -32,7 +32,7 @@ public class Exercise1 extends AbstractBaseTest {
     @Feature("Exercise 1")
     @Story("homework_1")
     @Test
-    public void testExercise1() throws IOException {
+    public void Exercise1Test() throws IOException {
 
         // 1. open site
         steps.openEpamJdiSite();

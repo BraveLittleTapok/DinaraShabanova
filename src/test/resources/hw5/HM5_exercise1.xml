@@ -5,12 +5,12 @@
         <classes>
             <class name="homework_5.Exercise1">
                 <methods>
-                    <include name="testExercise1"/>
+                    <include name="Exercise1Test"/>
                 </methods>
             </class>
             <class name="homework_5.Exercise2">
                 <methods>
-                    <include name="testExercise2"/>
+                    <include name="Exercise2Test"/>
                 </methods>
             </class>
         </classes>
@@ -21,7 +21,7 @@
         <classes>
             <class name="homework_5.Exercise_Fail">
                 <methods>
-                    <include name="testExerciseFail"/>
+                    <include name="ExerciseFailTest"/>
                 </methods>
             </class>
         </classes>
