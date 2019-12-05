@@ -8,11 +8,6 @@
                     <include name="testExercise1"/>
                 </methods>
             </class>
-        </classes>
-    </test>
-
-    <test name="Exercise2">
-        <classes>
             <class name="homework_5.Exercise2">
                 <methods>
                     <include name="testExercise2"/>
