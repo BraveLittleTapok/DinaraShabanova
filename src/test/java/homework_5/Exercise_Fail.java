@@ -33,7 +33,7 @@ public class Exercise_Fail extends AbstractBaseTest {
 
     @Feature("Exercise 1")
     @Test
-    public void testExercise1FromHW3() throws IOException {
+    public void ExerciseFailTest() throws IOException {
 
         // 1. open site
         steps.openEpamJdiSite();

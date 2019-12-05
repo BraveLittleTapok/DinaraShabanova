@@ -32,7 +32,7 @@ public class Exercise2 extends AbstractBaseTest {
     @Feature("Exercise 2")
     @Story("homework_1")
     @Test
-    public void testExerciseFail() throws IOException {
+    public void Exercise2Test() throws IOException {
         SoftAssert softAssert = new SoftAssert();
         // 1. open site
         steps.openEpamJdiSite();
