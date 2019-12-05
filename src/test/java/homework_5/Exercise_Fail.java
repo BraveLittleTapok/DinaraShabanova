@@ -33,7 +33,7 @@ public class Exercise_Fail extends AbstractBaseTest {
     }
 
     @Feature("Exercise_FAIL")
-    @Story("exercise_3")
+    @Story("exercise_fail")
     @Test
     public void ExerciseFailTest() throws IOException {
 
