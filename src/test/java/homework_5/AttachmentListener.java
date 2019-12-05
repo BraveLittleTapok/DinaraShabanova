@@ -4,29 +4,60 @@ import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriverException;
+import org.testng.ITestContext;
+import org.testng.ITestListener;
 import org.testng.ITestResult;
-import org.testng.TestListenerAdapter;
 
 /**
  * Created by Dinara Shabanova on 04.12.2019.
  */
-public class AttachmentListener extends TestListenerAdapter {
+public class AttachmentListener implements ITestListener {
 
-    @Attachment(value = "Attachment: {0}", type = "image/png")
-    public byte[] makeScreenshot() {
-        byte[] array = {1};
+    @Attachment(value = "{0}", fileExtension = "png", type = "image/png")
+    public byte[] makeScreenshot(String name) {
+        byte[] array = null;
         try {
-            return ((TakesScreenshot) WebDriverSingleton.INSTANCE.getDriver())
-                    .getScreenshotAs(OutputType.BYTES);
+            System.out.println("Make " + name + " screenshot");
+            array = ((TakesScreenshot) WebDriverSingleton
+                    .INSTANCE.getDriver()).getScreenshotAs(OutputType.BYTES);
         } catch (WebDriverException e) {
-            e.printStackTrace();
+                e.printStackTrace();
         }
         return array;
     }
 
     @Override
     public void onTestFailure(ITestResult tr) {
-        super.onTestFailure(tr);
-        makeScreenshot();
+        makeScreenshot(tr.getName());
+    }
+
+    @Override
+    public void onTestSkipped(ITestResult iTestResult) {
+
+    }
+
+    @Override
+    public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
+
+    }
+
+    @Override
+    public void onStart(ITestContext iTestContext) {
+
+    }
+
+    @Override
+    public void onFinish(ITestContext iTestContext) {
+
+    }
+
+    @Override
+    public void onTestStart(ITestResult iTestResult) {
+
+    }
+
+    @Override
+    public void onTestSuccess(ITestResult iTestResult) {
+        makeScreenshot(iTestResult.getName());
     }
 }
