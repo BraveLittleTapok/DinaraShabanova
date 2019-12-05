@@ -3,7 +3,7 @@
 
     <test name="Exercise1">
         <classes>
-            <class name="homework_3.ex1.Exercise1">
+            <class name="homework_5.Exercise1">
                 <methods>
                     <include name="testExercise1"/>
                 </methods>
@@ -13,32 +13,22 @@
 
     <test name="Exercise2">
         <classes>
-            <class name="homework_3.ex2.Exercise2">
+            <class name="homework_5.Exercise2">
                 <methods>
                     <include name="testExercise2"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <!--
-    <test name="Exercise1">
-        <classes>
-            <class name="homework_4.exercise1.Exercise1">
-                <methods>
-                    <include name="exercise1"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
 
-    <test name="Exercise2">
+
+    <test name="Exercise_Fail">
         <classes>
-            <class name="homework_4.exercise2.Exercise2">
+            <class name="homework_5.Exercise_Fail">
                 <methods>
-                    <include name="exercise2"/>
+                    <include name="testExerciseFail"/>
                 </methods>
             </class>
         </classes>
     </test>
--->
 </suite>
