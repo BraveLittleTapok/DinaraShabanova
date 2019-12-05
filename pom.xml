@@ -32,7 +32,7 @@
     </properties>
 
     <profiles>
-      <!--  <profile>
+        <profile>
             <id>sumAndSub</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
@@ -120,7 +120,7 @@
             <properties>
                 <suite.file>src/test/resources/hw4/HM4_exercise2.xml</suite.file>
             </properties>
-        </profile>-->
+        </profile>
 
         <profile>
             <id>test-selenium</id>
