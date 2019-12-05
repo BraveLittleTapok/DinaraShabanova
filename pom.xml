@@ -15,10 +15,7 @@
 
         <testng.version>7.0.0</testng.version>
 
-        <maven.compiler.plugin.version>3.6.2</maven.compiler.plugin.version>
-
         <calculator.version>1.0</calculator.version>
-        <surefire.version>2.21.0</surefire.version>
 
         <selenium.version>3.141.59</selenium.version>
         <webdrivermanager.version>3.7.1</webdrivermanager.version>
@@ -27,6 +24,9 @@
         <allure.version>2.13.0</allure.version>
         <aspectj.version>1.8.10</aspectj.version>
 
+        <!-- Plugins version -->
+        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+        <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
 
     </properties>
 
@@ -207,7 +207,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${surefire.version}</version>
+                <version>${maven.surefire.plugin.version}</version>
                 <configuration>
                     <reuseForks>false</reuseForks>
                     <forkCount>0</forkCount>
