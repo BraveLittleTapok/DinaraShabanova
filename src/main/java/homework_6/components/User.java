@@ -34,19 +34,10 @@ public class User {
     @FindBy(id = "user-name")
     private WebElement usernameLabel;
 
-    public void userIconClick() {
+    public void loginWithNameAndPassword(String name, String password) {
         userIcon.click();
-    }
-
-    public void fillLoginField(String username) {
-        usernameTextField.sendKeys(username);
-    }
-
-    public void fillPasswordField(String password) {
+        usernameTextField.sendKeys(name);
         passwordTextField.sendKeys(password);
-    }
-
-    public void clickLoginButton() {
         loginButton.click();
     }
 

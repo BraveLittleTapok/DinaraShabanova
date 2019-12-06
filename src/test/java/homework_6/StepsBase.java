@@ -28,13 +28,6 @@ public class StepsBase {
         homePage.open();
     }
 
-    @Step("I login as '{0}' with password '{1}'")
-    public void login(final String username, final String password) {
-        user.userIconClick();
-        user.fillLoginField(username);
-        user.fillPasswordField(password);
-        user.clickLoginButton();
-    }
 
     @Step("I click item '{0}' on the Header Menu")
     public void headerMenuItemClick(final String item) {
