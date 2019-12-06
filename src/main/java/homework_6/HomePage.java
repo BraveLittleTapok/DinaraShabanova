@@ -104,26 +104,6 @@ public class HomePage extends AbstractBasePage {
         return textUnderMainTitle;
     }
 
-    public void openFrame() {
-        driver.switchTo().frame("iframe");
-    }
-
-    public WebElement getFrame() {
-        return frame;
-    }
-
-    public WebElement getLogoFrame() {
-        return epamLogo;
-    }
-
-    public WebElement getLeftSection() {
-        return leftSection;
-    }
-
-    public WebElement getFooter() {
-        return footer;
-    }
-
     public WebElement getLinkGithub() {
         return linkGithub;
     }

@@ -1,27 +1,28 @@
 package homework_6.exercise1.steps;
 
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import homework_5.WebDriverSingleton;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import homework_6.HomePage;
+import homework_6.components.HeaderMenu;
+import homework_6.components.MenuLeftSection;
+import homework_6.components.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
 
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created by dinar on 23.11.2019.
  */
-public abstract class AbstractBaseTest {
+public abstract class AbstractBaseSteps {
     protected WebDriver driver;
+    protected static HomePage homePage;
+    protected static User user;
+    protected static HeaderMenu headerMenu;
+    protected static MenuLeftSection leftMenu;
 
-    @BeforeSuite
-    public void suiteSetUp() {
-        WebDriverManager.chromedriver().setup();
-    }
-
-    @BeforeMethod
+    @Before
     public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -31,7 +32,7 @@ public abstract class AbstractBaseTest {
         WebDriverSingleton.INSTANCE.setDriver(driver);
     }
 
-    @AfterMethod
+    @After
     public void tearDown() {
         driver.close();
     }

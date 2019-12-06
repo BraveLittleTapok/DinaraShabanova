@@ -6,6 +6,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
 
 /**
  * Created by dinar on 23.11.2019.
@@ -33,13 +37,25 @@ public class HeaderMenu {
             }
         }
     }
-    public void dropDownMenuItemClick(final String item){
+
+    public void dropDownMenuItemClick(final String item) {
         for (WebElement menuSub : dropDownItems) {
             if (item.equalsIgnoreCase(menuSub.getText())) {
                 menuSub.click();
                 break;
             }
         }
+    }
+
+    public boolean serviceContainsAllSubCategories(List<String> menu) {
+        List<String> actualItems = dropDownItems.stream()
+                .map(p -> p.getText())
+                .collect(Collectors.toList());
+        return actualItems
+                .stream()
+                .collect(groupingBy(k -> k, counting()))
+                .equals(menu.stream()
+                        .collect(groupingBy(k -> k, counting())));
     }
 
     public List<WebElement> getHeaderItems() {
