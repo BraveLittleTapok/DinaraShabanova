@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="BasicSuite" verbose="2" parallel="none">
+    <test name="TestCucumber1">
+        <classes>
+            <class name="homework_6.exercise1.RunTest" />
+        </classes>
+    </test>
+</suite>

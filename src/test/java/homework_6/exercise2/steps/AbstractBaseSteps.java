@@ -1,9 +1,8 @@
-package homework_6.exercise1.steps;
+package homework_6.exercise2.steps;
 
-import homework_6.DifferentElementsPage;
 import homework_6.HomePage;
+import homework_6.UserTablePage;
 import homework_6.components.HeaderMenu;
-import homework_6.components.MenuLeftSection;
 import homework_6.components.User;
 import org.openqa.selenium.WebDriver;
 
@@ -15,6 +14,5 @@ public abstract class AbstractBaseSteps {
     protected static HomePage homePage;
     protected static User user;
     protected static HeaderMenu headerMenu;
-    protected static MenuLeftSection leftMenu;
-    protected static DifferentElementsPage diffPage;
+    protected static UserTablePage tablePage;
 }

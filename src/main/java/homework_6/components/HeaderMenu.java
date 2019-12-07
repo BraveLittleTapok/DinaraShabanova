@@ -10,10 +10,6 @@ import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
-
-/**
- * Created by dinar on 23.11.2019.
- */
 public class HeaderMenu {
 
     private WebDriver driver;
@@ -56,23 +52,7 @@ public class HeaderMenu {
                 .collect(groupingBy(k -> k, counting()))
                 .equals(menu.stream()
                         .collect(groupingBy(k -> k, counting())));
+
     }
 
-    public List<WebElement> getHeaderItems() {
-        return headerItems;
-    }
-
-    public WebElement getItem(final String itemOfHeaderMenu) {
-        WebElement item = null;
-        for (WebElement menuHeaderItem : headerItems) {
-            if (itemOfHeaderMenu.equalsIgnoreCase(menuHeaderItem.getText())) {
-                item = menuHeaderItem;
-            }
-        }
-        return item;
-    }
-
-    public List<WebElement> getDropDownItems() {
-        return dropDownItems;
-    }
 }

@@ -104,7 +104,4 @@ public class HomePage extends AbstractBasePage {
         return textUnderMainTitle;
     }
 
-    public WebElement getLinkGithub() {
-        return linkGithub;
-    }
 }

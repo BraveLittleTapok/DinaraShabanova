@@ -51,7 +51,7 @@ public class DifferentElementsPage extends AbstractBasePage {
         return ret;
     }
 
-    public WebElement getElementFromRadio(final String element){
+    public WebElement getElementOfRadio(final String element){
         WebElement ret = null;
         for (WebElement el: elementsOfRadio) {
             if (el.getText().equalsIgnoreCase(element)){
@@ -69,7 +69,7 @@ public class DifferentElementsPage extends AbstractBasePage {
         return elementsOfRadio;
     }
 
-    public List<WebElement> getElementsOfColors() {
+    public List<WebElement> getDropdownElementsOfColors() {
         return elementsOfColors;
     }
 

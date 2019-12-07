@@ -36,17 +36,18 @@ public class MenuLeftSection {
             }
         }
     }
+
     public boolean serviceContainsAllSubCategories(List<String> menu) {
         List<String> actualItems = dropDownItems.stream()
-                .map(p -> p.getText())
+                .filter(p -> !p.getText().isEmpty())
+                .map(p -> (p.getText()))
                 .collect(Collectors.toList());
+
         return actualItems
                 .stream()
                 .collect(groupingBy(k -> k, counting()))
                 .equals(menu.stream()
                         .collect(groupingBy(k -> k, counting())));
     }
-    public List<WebElement> getLeftSectionItems() {
-        return leftSectionItems;
-    }
+
 }
