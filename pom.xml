@@ -126,10 +126,30 @@
         <profile>
             <id>test-selenium</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>src\test\resources\hw5\HM5_exercise1.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>test-CucumberExercise1</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src\test\resources\hw6\exercise1.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>test-CucumberExercise2</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src\test\resources\hw6\exercise2.xml</suite.xml>
             </properties>
         </profile>
     </profiles>

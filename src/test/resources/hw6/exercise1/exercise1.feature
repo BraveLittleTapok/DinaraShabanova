@@ -10,9 +10,9 @@ Feature: Exercise 1
     And headline above the pictures is displayed on the Home Page
     And description above the pictures is displayed on the Home Page
     When I click on 'Service' in the header menu
-    Then Service in the header menu contains subcategories 'Support, Dates, Complex Table, Simple Table, Table with pages, Different elements'
+    Then Service in the header menu contains subcategories 'SUPPORT, DATES, SEARCH, COMPLEX TABLE, SIMPLE TABLE, USER TABLE, TABLE WITH PAGES, DIFFERENT ELEMENTS, PERFORMANCE'
     When I click on 'Service' in the left section
-    Then Service in the left menu contains subcategories 'Support, Dates, Complex Table, Simple Table, Table with pages, Different elements'
+    Then Service in the left menu contains subcategories 'Support, Dates, Search, Complex Table, Simple Table, User Table, Table with pages, Different elements, Performance'
     When I click on 'Service' in the header menu
     And I click on 'Different Elements' button in Service dropdown
     Then 'Different Elements' is opened
@@ -23,24 +23,18 @@ Feature: Exercise 1
     And Right Section is displayed on the Different Elements Page
     And Left Section is displayed on the Different Elements Page
     When I select 'Water' checkbox on the Different Elements Page
-    Then element is selected on the Different Elements Page
-    And 1 Log row has  'Water: condition changed to true' on the Different Elements Page
+    Then 1 Log row has 'Water: condition changed to true' on the Different Elements Page
     When I select 'Wind' checkbox on the Different Elements Page
-    Then element is selected on the Different Elements Page
-    And 1 Log row has  'Wind: condition changed to true' on the Different Elements Page
+    Then 1 Log row has 'Wind: condition changed to true' on the Different Elements Page
     When I select 'Selen' radio on the Different Elements Page
-    Then element is selected on the Different Elements Page
-    And 1 Log row has  'metal: value changed to Selen' on the Different Elements Page
-    When I click dropdown on the Different Elements Page
-    And I select 'Yellow' in dropdown on the Different Elements Page
-    Then element is selected on the Different Elements Page
-    And 1 Log row has  'Colors: value changed to Yellow' on the Different Elements Page
-    When I unselect 'Water' checkbox on the Different Elements Page
-    Then element is unselected on the Different Elements Page
-    And 1 Log row has  'Water: condition changed to false' on the Different Elements Page
+    Then 1 Log row has 'metal: value changed to Selen' on the Different Elements Page
+    When I select 'Yellow' in dropdown on the Different Elements Page
+    Then element of dropdown is selected on the Different Elements Page
+    And 1 Log row has 'Colors: value changed to Yellow' on the Different Elements Page
+    When I select 'Water' checkbox on the Different Elements Page
+    Then 1 Log row has 'Water: condition changed to false' on the Different Elements Page
     When I select 'Wind' checkbox on the Different Elements Page
-    Then element is unselected on the Different Elements Page
-    And 1 Log row has  'Wind: condition changed to false' on the Different Elements Page
+    Then 1 Log row has 'Wind: condition changed to false' on the Different Elements Page
 
 
 
