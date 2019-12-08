@@ -1,4 +1,4 @@
-package homework_6;
+package homework_6.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

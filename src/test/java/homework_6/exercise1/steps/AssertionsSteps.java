@@ -114,4 +114,5 @@ public class AssertionsSteps extends AbstractBaseSteps {
     public void elementIsSelectedOnTheDifferentElementsPage() {
         assertTrue(diffPage.getDropDown().getFirstSelectedOption().isSelected());
     }
+
 }

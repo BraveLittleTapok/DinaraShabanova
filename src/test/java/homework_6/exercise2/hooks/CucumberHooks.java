@@ -21,6 +21,7 @@ public class CucumberHooks {
 
     @After
     public void tearDown() {
+
         WebDriverSingleton.INSTANCE.getDriver().close();
     }
 }

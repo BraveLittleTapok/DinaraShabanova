@@ -2,9 +2,8 @@ package homework_6.exercise2.steps;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
-import homework_6.UserTablePage;
+import homework_6.pages.UserTablePage;
 import homework_6.components.HeaderMenu;
-import homework_6.components.MenuLeftSection;
 import homework_6.components.User;
 
 import static homework_6.exercise1.WebDriverSingleton.INSTANCE;
@@ -28,9 +27,18 @@ public class ActionSteps extends AbstractBaseSteps {
     }
 
     @And("^I click on '([^\"]+)' button in Service dropdown$")
-    public void iClickOnDifferentElementsButtonInServiceDropdown(String item) {
+    public void iClickOnUserTableButtonInServiceDropdown(String item) {
         headerMenu.dropDownMenuItemClick(item);
     }
 
+    @When("^I select 'vip' checkbox for '([^\"]+)'$")
+    public void iSelectVipCheckboxForUser(String name) {
+        tablePage.clickVipForUser(name);
+    }
+
+    @When("^I click on dropdown in column Type for user Roman$")
+    public void iClickOnDropdownInColumnTypeForUserRoman() {
+        tablePage.clickDropdownForRoman();
+    }
 }
 

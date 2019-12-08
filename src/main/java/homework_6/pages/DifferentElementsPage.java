@@ -1,4 +1,4 @@
-package homework_6;
+package homework_6.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -34,9 +34,6 @@ public class DifferentElementsPage extends AbstractBasePage {
 
     @FindBy(id = "mCSB_1")
     private WebElement leftSection;
-
-    @FindBy(xpath = "//div[@class='info-panel-section']/ul/li")
-    private List<WebElement> listOfLogs;
 
     @FindBy(xpath = "//div[@class='main-content-hg']/div[@class='colors']/select[@class='uui-form-element']")
     private WebElement dropDown;
@@ -87,10 +84,6 @@ public class DifferentElementsPage extends AbstractBasePage {
 
     public WebElement getLeftSection() {
         return leftSection;
-    }
-
-    public List<WebElement> getListOfLogs() {
-        return listOfLogs;
     }
 
     public Select getDropDown() {

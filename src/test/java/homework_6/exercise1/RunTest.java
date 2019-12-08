@@ -8,13 +8,11 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-public class RunTest {
-
     @CucumberOptions(
-            features = "classpath:hw6/exercise1"
+            features = "classpath:hw6/exercise1",
+            glue = {"helpers","stepDefinitions"}
     )
-    public class RunTests extends AbstractTestNGCucumberTests {
+    public class RunTest extends AbstractTestNGCucumberTests {
         private TestNGCucumberRunner testNGCucumberRunner;
 
         @BeforeClass(alwaysRun = true)
@@ -37,4 +35,4 @@ public class RunTest {
             testNGCucumberRunner.finish();
         }
     }
-}
+

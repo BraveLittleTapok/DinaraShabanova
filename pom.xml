@@ -27,7 +27,7 @@
 
         <!-- Plugins version -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-        <maven.surefire.plugin.version>3.0.0-M1</maven.surefire.plugin.version>
+        <maven.surefire.plugin.version>2.18.1</maven.surefire.plugin.version>
         <allure.maven.plugin.version>2.10.0</allure.maven.plugin.version>
         <cucumber.version>1.2.5</cucumber.version>
     </properties>
@@ -129,7 +129,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>src\test\resources\hw5\HM5_exercise1.xml</suite.xml>
+                <suite.xml>src/test/resources/hw5/HM5_exercise1.xml</suite.xml>
             </properties>
         </profile>
 
@@ -139,7 +139,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>src\test\resources\hw6\exercise1.xml</suite.xml>
+                <suite.xml>src/test/resources/hw6/exercise1.xml</suite.xml>
             </properties>
         </profile>
 
@@ -149,7 +149,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>src\test\resources\hw6\exercise2.xml</suite.xml>
+                <suite.xml>src/test/resources/hw6/exercise2.xml</suite.xml>
             </properties>
         </profile>
     </profiles>
