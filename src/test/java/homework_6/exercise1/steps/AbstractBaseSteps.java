@@ -1,7 +1,7 @@
 package homework_6.exercise1.steps;
 
-import homework_6.DifferentElementsPage;
-import homework_6.HomePage;
+import homework_6.pages.DifferentElementsPage;
+import homework_6.pages.HomePage;
 import homework_6.components.HeaderMenu;
 import homework_6.components.MenuLeftSection;
 import homework_6.components.User;

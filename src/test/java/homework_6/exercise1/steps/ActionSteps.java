@@ -2,7 +2,7 @@ package homework_6.exercise1.steps;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
-import homework_6.DifferentElementsPage;
+import homework_6.pages.DifferentElementsPage;
 import homework_6.components.HeaderMenu;
 import homework_6.components.MenuLeftSection;
 import homework_6.components.User;

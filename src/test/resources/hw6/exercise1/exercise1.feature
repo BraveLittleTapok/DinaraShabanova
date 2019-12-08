@@ -35,6 +35,3 @@ Feature: Exercise 1
     Then 1 Log row has 'Water: condition changed to false' on the Different Elements Page
     When I select 'Wind' checkbox on the Different Elements Page
     Then 1 Log row has 'Wind: condition changed to false' on the Different Elements Page
-
-
-

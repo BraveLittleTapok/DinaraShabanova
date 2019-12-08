@@ -1,7 +1,7 @@
 package homework_6.exercise2.steps;
 
 import cucumber.api.java.en.Given;
-import homework_6.HomePage;
+import homework_6.pages.HomePage;
 
 import static homework_6.exercise1.WebDriverSingleton.INSTANCE;
 
