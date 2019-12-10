@@ -134,22 +134,12 @@
         </profile>
 
         <profile>
-            <id>test-CucumberExercise1</id>
+            <id>test-CucumberExercise</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>src/test/resources/hw6/exercise1.xml</suite.xml>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>test-CucumberExercise2</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <suite.xml>src/test/resources/hw6/exercise2.xml</suite.xml>
+                <suite.xml>src/test/resources/hw6/exercise.xml</suite.xml>
             </properties>
         </profile>
     </profiles>

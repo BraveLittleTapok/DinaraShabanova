@@ -2,9 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Exercise" verbose="2" parallel="none">
-    <test name="TestCucumber1">
+    <test name="TestCucumber2">
         <classes>
-            <class name="homework_6.exercise1.RunTest" />
+            <class name="homework_6.exercise.RunTest" />
         </classes>
     </test>
 </suite>
