@@ -1,4 +1,4 @@
-package homework_6.exercise2;
+package homework_6.exercise;
 
 /**
  * Created by dinar on 23.11.2019.

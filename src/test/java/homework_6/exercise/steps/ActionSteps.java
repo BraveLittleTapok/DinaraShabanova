@@ -1,39 +1,27 @@
-package homework_6.exercise1.steps;
+package homework_6.exercise.steps;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
-import homework_6.pages.DifferentElementsPage;
-import homework_6.components.HeaderMenu;
-import homework_6.components.MenuLeftSection;
-import homework_6.components.User;
-
-import static homework_6.exercise1.WebDriverSingleton.INSTANCE;
+import homework_6.common.AbstractBaseSteps;
 
 public class ActionSteps extends AbstractBaseSteps {
-
-    public ActionSteps() {
-        user = new User(INSTANCE.getDriver());
-        headerMenu = new HeaderMenu(INSTANCE.getDriver());
-        leftMenu = new MenuLeftSection(INSTANCE.getDriver());
-        diffPage = new DifferentElementsPage(INSTANCE.getDriver());
-    }
 
     @When("^I login as '([^\"]+)' with password '([^\"]+)'$")
     public void iLoginAsEpamWithPassword(String name, String password) {
         user.loginWithNameAndPassword(name, password);
     }
 
-    @When("^I click on '([^\"]+)' in the header menu$")
+    @When("^I click on '([^\"]+)' button in Header$")
     public void iClickOnServiceInTheHeaderMenu(String item) {
         headerMenu.headerMenuItemClick(item);
     }
 
-    @When("^I click on '([^\"]+)' in the left section$")
+    @When("^I click on '([^\"]+)' in the left section on the Home page$")
     public void iClickOnServiceInTheLeftSection(String item) {
         leftMenu.leftMenuItemClick(item);
     }
 
-    @And("^I click on '([^\"]+)' button in Service dropdown$")
+    @And("^I click on '([^\"]+)' button in Service dropdown on the Home page$")
     public void iClickOnDifferentElementsButtonInServiceDropdown(String item) {
         headerMenu.dropDownMenuItemClick(item);
     }
@@ -52,5 +40,29 @@ public class ActionSteps extends AbstractBaseSteps {
     public void iClickDropdownOnTheDifferentElementsPage(String dropdown) {
         diffPage.getDropDown().selectByVisibleText(dropdown);
     }
+
+
+
+//SCENARIO 2
+    @When("^I login as user 'Piter Chailovskii'$")
+    public void iLoginAsEpamWithPassword() {
+        user.loginWithNameAndPassword("epam", "1234");
+    }
+
+    @And("^I click on '([^\"]+)' button in Service dropdown$")
+    public void iClickOnUserTableButtonInServiceDropdown(String item) {
+        headerMenu.dropDownMenuItemClick(item);
+    }
+
+    @When("^I select 'vip' checkbox for '([^\"]+)'$")
+    public void iSelectVipCheckboxForUser(String name) {
+        tablePage.clickVipForUser(name);
+    }
+
+    @When("^I click on dropdown in column Type for user Roman$")
+    public void iClickOnDropdownInColumnTypeForUserRoman() {
+        tablePage.clickDropdownForRoman();
+    }
+
 }
 
