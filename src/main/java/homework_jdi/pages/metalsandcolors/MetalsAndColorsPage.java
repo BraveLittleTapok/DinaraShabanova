@@ -1,37 +1,49 @@
 package homework_jdi.pages.metalsandcolors;
 
 import com.epam.jdi.light.elements.composite.WebPage;
-import homework_jdi.Data;
+import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
+import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
 import org.openqa.selenium.By;
 
 import java.util.List;
 
 public class MetalsAndColorsPage extends WebPage {
 
-   // @Css(".main-content")
+    @Css(".main-content")
     private MainSection mainSection;
 
-    private Data data;
+   @FindBy(xpath = "//div[@name='log-sidebar']")
+    private LogSection log;
 
-    public void setSummary(List<Integer> summaryList){
-   //     Summary summary = new Summary(summaryList.get(0),summaryList.get(1));
-  //      mainSection.getSummaryForm().fill(summary);
+    public void setSummary(List<Integer> summaryList) {
+        mainSection.getSummaryElement().radioButtons.list().select(summaryList.get(0));
+        mainSection.getSummaryElement().radioButtons.list().select(summaryList.get(1));
+        mainSection.getSummaryButton().click();
     }
 
-    public void setVegetables(List<String> vegValues){
+    public void setVegetables(List<String> vegValues) {
         mainSection.getVegetables().find(By.tagName("button")).click();
-        mainSection.getVegetables().select(vegValues.get(0));
+        mainSection.getVegetables().find(By.xpath("//label[contains(text(),'Vegetables')]")).click();
+        for (String value : vegValues) {
+            mainSection.getVegetables().find(By.xpath("//label[contains(text(),'" + value + "')]")).click();
+        }
     }
-    public void setMetals(String metals){
-
+    public void setMetals(String metals) {
+        mainSection.getMetals().select(metals);
     }
-    public void setElements(List<String> elementValues){
-
+    public void setElements(List<String> elementValues) {
+        for (String value : elementValues) {
+            mainSection.getElements().find(By.xpath("//label[contains(text(),'" + value + "')]")).click();
+        }
     }
-    public void setColors(String colors){
-
+    public void setColors(String colors) {
+        mainSection.getColors().select(colors);
     }
-    public void clickSubmit(){
+    public void clickSubmit() {
         mainSection.getSubmit().click();
+    }
+
+    public LogSection getLog() {
+        return log;
     }
 }

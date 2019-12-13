@@ -30,6 +30,7 @@ public class JdiTest {
         steps.clickHeaderMenu(METALS_AND_COLORS);
         steps.pageIsOpened(METALS_AND_COLORS);
         steps.fillPageWithDataFromJson(data);
+        steps.resultShouldBeSuccessful(data);
     }
 
 }

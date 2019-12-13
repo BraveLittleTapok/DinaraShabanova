@@ -29,17 +29,22 @@ public class AssertionsStep {
     }
 
     public void pageIsOpened(String metalsAndColors) {
-           JdiSite.metalColorsPage.checkOpened();
+        JdiSite.metalColorsPage.checkOpened();
     }
 
     public void fillPageWithDataFromJson(Data data) throws FileNotFoundException {
 
         JdiSite.metalColorsPage.setSummary(data.getSummary());
+        JdiSite.metalColorsPage.setVegetables(data.getVegetables());
         JdiSite.metalColorsPage.setColors(data.getColor());
         JdiSite.metalColorsPage.setElements(data.getElements());
         JdiSite.metalColorsPage.setMetals(data.getMetals());
-        JdiSite.metalColorsPage.setVegetables(data.getVegetables());
+        JdiSite.metalColorsPage.clickSubmit();
 
     }
 
+    public void resultShouldBeSuccessful(Data data) {
+        int expected = data.getSummary().get(0).intValue() + data.getSummary().get(1).intValue();
+        Assert.assertEquals(JdiSite.metalColorsPage.getLog().getSummary(), Integer.valueOf(expected));
+    }
 }
