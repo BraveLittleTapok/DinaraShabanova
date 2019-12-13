@@ -11,6 +11,7 @@ import homework_jdi.commonelements.forms.LoginForm;
 public class HomePage extends WebPage {
 
     public LoginForm loginForm;
+
     @Css("#user-name")
     private Text userName;
     @Css("#user-icon")

@@ -12,7 +12,8 @@ public class MainSection extends Section {
 
     private SummaryForm summary;
     @Css("#salad-dropdown")
-    private MultiSelector vegetables;
+    private Dropdown vegetables;
+
     @Css("#elements-block")
     private MultiSelector elements;
     @Css("#colors")
@@ -27,7 +28,7 @@ public class MainSection extends Section {
         return summary;
     }
 
-    public MultiSelector getVegetables() {
+    public Dropdown getVegetables() {
         return vegetables;
     }
 
@@ -51,7 +52,7 @@ public class MainSection extends Section {
         this.summary = summary;
     }
 
-    public void setVegetables(MultiSelector vegetables) {
+    public void setVegetables(Dropdown vegetables) {
         this.vegetables = vegetables;
     }
 

@@ -13,10 +13,10 @@ public class DataProviderJson {
     public Object[][] divideDataProviderNoCheckDivZero() throws FileNotFoundException {
         Reader reader = new FileReader("src/test/resources/hw_jdi/JDI_ex8_metalsColorsDataSet.json");
         Gson gson = new Gson();
-        Data[] datas = gson.fromJson(reader, Data[].class);
-        System.out.println();
+        ListWithDatas datas = gson.fromJson(reader, ListWithDatas.class);
+
         return new Object[][]{
-                {0}, {0}, {1}};
+                {datas.getData_1()}};
     }
 
 }

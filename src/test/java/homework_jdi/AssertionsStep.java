@@ -2,10 +2,16 @@ package homework_jdi;
 
 import org.testng.Assert;
 
+import java.io.FileNotFoundException;
+
 import static homework_jdi.commonelements.entities.JdiUser.ROMAN;
 import static java.lang.String.format;
 
 public class AssertionsStep {
+
+    public AssertionsStep() {
+
+    }
 
     public void openJsiSite() {
         JdiSite.open();
@@ -23,11 +29,17 @@ public class AssertionsStep {
     }
 
     public void pageIsOpened(String metalsAndColors) {
-       JdiSite.metalColorsPage.checkOpened();
+           JdiSite.metalColorsPage.checkOpened();
     }
 
-    public void fillPageWithDataFromJson(Data data) {
-       // JdiSite.metalColorsPage.setSummary(data.getSummary());
+    public void fillPageWithDataFromJson(Data data) throws FileNotFoundException {
+
+        JdiSite.metalColorsPage.setSummary(data.getSummary());
+        JdiSite.metalColorsPage.setColors(data.getColor());
+        JdiSite.metalColorsPage.setElements(data.getElements());
+        JdiSite.metalColorsPage.setMetals(data.getMetals());
+        JdiSite.metalColorsPage.setVegetables(data.getVegetables());
+
     }
 
 }

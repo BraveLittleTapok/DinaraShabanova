@@ -1,15 +1,18 @@
 package homework_jdi;
 
-import com.google.gson.Gson;
+import com.epam.jdi.light.driver.WebDriverUtils;
+import com.epam.jdi.light.elements.init.PageFactory;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.Reader;
 
-//@Test(dataProvider = "DataProviderJson", dataProviderClass = DataProviderJson.class)
+import static homework_jdi.HeaderMenuItems.METALS_AND_COLORS;
+
+@Test(dataProvider = "DataProviderJson", dataProviderClass = DataProviderJson.class)
 public class JdiTest {
- /*   @BeforeSuite(alwaysRun = true)
+    @BeforeSuite(alwaysRun = true)
     public void beforeSuite() {
         PageFactory.initSite(JdiSite.class);
     }
@@ -18,20 +21,15 @@ public class JdiTest {
     public void afterSuite() {
         WebDriverUtils.killAllSeleniumDrivers();
     }
-*/
+
     @Test
     public void jdiTest(Data data) throws FileNotFoundException {
-        Reader reader = new FileReader("src/test/resources/hw_jdi/JDI_ex8_metalsColorsDataSet.json");
-        Gson gson = new Gson();
-        Data[] datas = gson.fromJson(reader, Data[].class);
-        System.out.println();
-
         AssertionsStep steps = new AssertionsStep();
-    /*    steps.openJsiSite();
+        steps.openJsiSite();
         steps.loginWasSuccessful();
         steps.clickHeaderMenu(METALS_AND_COLORS);
         steps.pageIsOpened(METALS_AND_COLORS);
-        steps.fillPageWithDataFromJson(data);*/
+        steps.fillPageWithDataFromJson(data);
     }
 
 }
