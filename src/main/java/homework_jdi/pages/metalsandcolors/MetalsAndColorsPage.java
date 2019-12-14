@@ -16,10 +16,10 @@ public class MetalsAndColorsPage extends WebPage {
     private LogSection log;
 
     public void setSummary(List<Integer> summaryList) {
-        //      mainSection.summaryElementOdd.radioButtons.select(summaryList.get(0).toString());
-
-        mainSection.summaryElementOdd.radioButtons.find(By.xpath("//label[contains(@for,'" + summaryList.get(0) + "')]")).click();
-        mainSection.summaryElementEven.find(By.xpath("//label[contains(@for,'" + summaryList.get(1) + "')]")).click();
+        mainSection.getSummaryElementOdd().list().find(By.xpath("//label[contains(text(),'" +
+                summaryList.get(0).toString() + "')]")).click();
+        mainSection.getSummaryElementEven().list().find(By.xpath("//label[contains(text(),'" +
+                summaryList.get(1).toString() + "')]")).click();
         mainSection.getSummaryButton().click();
     }
 

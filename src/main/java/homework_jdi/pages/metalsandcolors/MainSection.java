@@ -6,14 +6,16 @@ import com.epam.jdi.light.elements.composite.Section;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.JDropdown;
 import com.epam.jdi.light.ui.html.elements.common.Button;
+import com.epam.jdi.light.ui.html.elements.complex.RadioButtons;
+
 
 public class MainSection extends Section {
 
+    @Css("#odds-selector")
+    private RadioButtons summaryElementOdd;
 
-   @Css("#odds-selector")
-    public SummaryElement summaryElementOdd;
     @Css("#even-selector")
-    public SummaryElement summaryElementEven;
+    private RadioButtons summaryElementEven;
 
     @Css("#calculate-button")
     private Button summaryButton;
@@ -63,4 +65,15 @@ public class MainSection extends Section {
         return submit;
     }
 
+    public RadioButtons getSummaryElementOdd() {
+        return summaryElementOdd;
+    }
+
+    public RadioButtons getSummaryElementEven() {
+        return summaryElementEven;
+    }
+
+    public Button getSubmit() {
+        return submit;
+    }
 }

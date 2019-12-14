@@ -1,6 +1,7 @@
-package homework_jdi;
+package homework_jdi.data;
 
 import com.google.gson.Gson;
+import homework_jdi.ListWithDatas;
 import org.testng.annotations.DataProvider;
 
 import java.io.FileNotFoundException;
@@ -16,8 +17,8 @@ public class DataProviderJson {
         ListWithDatas datas = gson.fromJson(reader, ListWithDatas.class);
 
         return new Object[][]{
-          //      {datas.getData_1()},
-          //      {datas.getData_2()},
+                {datas.getData_1()},
+                {datas.getData_2()},
                 {datas.getData_3()},
                 {datas.getData_4()},
                 {datas.getData_5()}};

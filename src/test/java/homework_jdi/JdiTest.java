@@ -2,6 +2,7 @@ package homework_jdi;
 
 import com.epam.jdi.light.driver.WebDriverUtils;
 import com.epam.jdi.light.elements.init.PageFactory;
+import homework_jdi.data.DataProviderJson;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
