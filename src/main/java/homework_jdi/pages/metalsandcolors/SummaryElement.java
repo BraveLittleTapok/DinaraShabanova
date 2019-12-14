@@ -9,25 +9,5 @@ public class SummaryElement extends Section {
 
     @UI(".radio")
     public RadioButtons radioButtons;
-//    @UI("input[name='custom_radio_odd']")
-//    private RadioButtons odd;
-//
-//    @UI("#even-selector")
-//    private RadioButtons evenGroup;
-//    @UI("input[name='custom_radio_even']")
-//    private RadioButtons even;
-
-
-//    public RadioButtons getOdd() {
-//        return odd;
-//    }
-//
-//    public RadioButtons getEven() {
-//        return even;
-//    }
-
-//    public Button getSubmit() {
-//        return submit;
-//    }
 
 }

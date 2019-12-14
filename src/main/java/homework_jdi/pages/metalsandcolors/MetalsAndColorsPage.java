@@ -12,12 +12,14 @@ public class MetalsAndColorsPage extends WebPage {
     @Css(".main-content")
     private MainSection mainSection;
 
-   @FindBy(xpath = "//div[@name='log-sidebar']")
+    @FindBy(xpath = "//div[@name='log-sidebar']")
     private LogSection log;
 
     public void setSummary(List<Integer> summaryList) {
-        mainSection.getSummaryElement().radioButtons.list().select(summaryList.get(0));
-        mainSection.getSummaryElement().radioButtons.list().select(summaryList.get(1));
+        //      mainSection.summaryElementOdd.radioButtons.select(summaryList.get(0).toString());
+
+        mainSection.summaryElementOdd.radioButtons.find(By.xpath("//label[contains(@for,'" + summaryList.get(0) + "')]")).click();
+        mainSection.summaryElementEven.find(By.xpath("//label[contains(@for,'" + summaryList.get(1) + "')]")).click();
         mainSection.getSummaryButton().click();
     }
 
@@ -28,19 +30,23 @@ public class MetalsAndColorsPage extends WebPage {
             mainSection.getVegetables().find(By.xpath("//label[contains(text(),'" + value + "')]")).click();
         }
     }
+
     public void setMetals(String metals) {
         mainSection.getMetals().select(metals);
     }
+
     public void setElements(List<String> elementValues) {
         for (String value : elementValues) {
             mainSection.getElements().find(By.xpath("//label[contains(text(),'" + value + "')]")).click();
         }
     }
+
     public void setColors(String colors) {
         mainSection.getColors().select(colors);
     }
+
     public void clickSubmit() {
-        mainSection.getSubmit().click();
+        mainSection.getSubmitButton().click();
     }
 
     public LogSection getLog() {

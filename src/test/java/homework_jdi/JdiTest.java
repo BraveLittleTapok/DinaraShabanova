@@ -6,8 +6,6 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-import java.io.FileNotFoundException;
-
 import static homework_jdi.HeaderMenuItems.METALS_AND_COLORS;
 
 @Test(dataProvider = "DataProviderJson", dataProviderClass = DataProviderJson.class)
@@ -23,7 +21,7 @@ public class JdiTest {
     }
 
     @Test
-    public void jdiTest(Data data) throws FileNotFoundException {
+    public void jdiTest(Data data) {
         AssertionsStep steps = new AssertionsStep();
         steps.openJsiSite();
         steps.loginWasSuccessful();

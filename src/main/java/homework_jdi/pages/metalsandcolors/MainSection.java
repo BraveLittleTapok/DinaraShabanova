@@ -3,14 +3,21 @@ package homework_jdi.pages.metalsandcolors;
 import com.epam.jdi.light.elements.common.UIElement;
 import com.epam.jdi.light.elements.complex.dropdown.Dropdown;
 import com.epam.jdi.light.elements.composite.Section;
-import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.JDropdown;
 import com.epam.jdi.light.ui.html.elements.common.Button;
 
 public class MainSection extends Section {
+
+
+   @Css("#odds-selector")
+    public SummaryElement summaryElementOdd;
+    @Css("#even-selector")
+    public SummaryElement summaryElementEven;
+
     @Css("#calculate-button")
     private Button summaryButton;
+
     @Css("#salad-dropdown")
     private UIElement vegetables;
 
@@ -32,13 +39,6 @@ public class MainSection extends Section {
     @Css("#submit-button")
     private Button submit;
 
-    @FindBy(xpath = "//section[@class='uui-info-panel-horizontal panel-gray']//div[@class='info-panel-section']")
-    private SummaryElement summaryElement;
-
-    public SummaryElement getSummaryElement() {
-        return summaryElement;
-    }
-
     public UIElement getVegetables() {
         return vegetables;
     }
@@ -59,7 +59,7 @@ public class MainSection extends Section {
         return summaryButton;
     }
 
-    public Button getSubmit() {
+    public Button getSubmitButton() {
         return submit;
     }
 
