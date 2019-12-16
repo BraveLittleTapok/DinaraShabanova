@@ -30,6 +30,7 @@
         <maven.surefire.plugin.version>2.18.1</maven.surefire.plugin.version>
         <allure.maven.plugin.version>2.10.0</allure.maven.plugin.version>
         <cucumber.version>1.2.5</cucumber.version>
+        <cucumber.version>1.2.5</cucumber.version>
 
         <domain>https://jdi-testing.github.io/jdi-light/</domain>
     </properties>
@@ -127,6 +128,16 @@
 
         <profile>
             <id>test-selenium</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw5/HM5_exercise1.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>test-CucumberExercise</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
