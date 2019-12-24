@@ -1,4 +1,5 @@
-package homework_api.beans;
+
+package beans;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
