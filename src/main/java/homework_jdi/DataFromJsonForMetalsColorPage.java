@@ -1,8 +1,9 @@
 package homework_jdi;
 
 import java.util.List;
+import java.util.Objects;
 
-public class Data {
+public class DataFromJsonForMetalsColorPage {
 
     private List<Integer> summary;
     private List<String> elements;
@@ -48,5 +49,21 @@ public class Data {
 
     public void setVegetables(List<String> vegetables) {
         this.vegetables = vegetables;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DataFromJsonForMetalsColorPage that = (DataFromJsonForMetalsColorPage) o;
+        return Objects.equals(elements, that.elements) &&
+                Objects.equals(color, that.color) &&
+                Objects.equals(metals, that.metals) &&
+                Objects.equals(vegetables, that.vegetables);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(elements, color, metals, vegetables);
     }
 }

@@ -1,5 +1,15 @@
 package homework_jdi.commonelements;
 
-public class HeaderMenuItems {
-    public final static String METALS_AND_COLORS = "Metals & Colors";
+public enum  HeaderMenuItems {
+    METALS_AND_COLORS ("Metals & Colors");
+
+    private String value;
+
+    HeaderMenuItems(String s) {
+        this.value = s;
+    }
+
+    public String getValue() {
+        return value;
+    }
 }

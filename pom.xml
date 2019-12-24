@@ -142,16 +142,6 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>src/test/resources/hw5/HM5_exercise1.xml</suite.xml>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>test-CucumberExercise</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
                 <suite.xml>src/test/resources/hw6/exercise.xml</suite.xml>
             </properties>
         </profile>

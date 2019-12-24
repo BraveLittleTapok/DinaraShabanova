@@ -15,7 +15,7 @@ public class DataProviderJson {
         Reader reader = new FileReader("src/test/resources/hw_jdi/JDI_ex8_metalsColorsDataSet.json");
         Gson gson = new Gson();
         ListWithDatas datas = gson.fromJson(reader, ListWithDatas.class);
-
+        System.out.println();
         return new Object[][]{
                 {datas.getData_1()},
                 {datas.getData_2()},

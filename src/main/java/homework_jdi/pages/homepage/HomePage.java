@@ -7,7 +7,6 @@ import com.epam.jdi.light.ui.html.elements.common.Button;
 import homework_jdi.commonelements.entities.JdiUser;
 import homework_jdi.commonelements.forms.LoginForm;
 
-@SuppressWarnings("")
 public class HomePage extends WebPage {
 
     public LoginForm loginForm;

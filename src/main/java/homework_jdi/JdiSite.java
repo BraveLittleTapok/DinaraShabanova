@@ -4,11 +4,10 @@ import com.epam.jdi.light.elements.pageobjects.annotations.JSite;
 import com.epam.jdi.light.elements.pageobjects.annotations.Url;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.XPath;
 import homework_jdi.commonelements.HeaderMenu;
+import homework_jdi.commonelements.HeaderMenuItems;
 import homework_jdi.commonelements.entities.JdiUser;
 import homework_jdi.pages.homepage.HomePage;
 import homework_jdi.pages.metalsandcolors.MetalsAndColorsPage;
-
-import static homework_jdi.commonelements.HeaderMenuItems.METALS_AND_COLORS;
 
 @JSite("https://jdi-testing.github.io/jdi-light/")
 public class JdiSite {
@@ -29,9 +28,12 @@ public class JdiSite {
         jdiHomePage.login(jdiUser);
     }
 
-    public static void clickItemOfHeaderMenu(String item) {
-        if (item.equalsIgnoreCase(METALS_AND_COLORS)) {
-            headerMenu.getMetalsAndColors().click();
+    public static void clickItemOfHeaderMenu(HeaderMenuItems item) {
+        switch (item) {
+            case METALS_AND_COLORS: {
+                headerMenu.getMetalsAndColors().click();
+                break;
+            }
         }
     }
 

@@ -1,29 +1,29 @@
 package homework_jdi;
 
 public class ListWithDatas {
-    private Data data_1;
-    private Data data_2;
-    private Data data_3;
-    private Data data_4;
-    private Data data_5;
+    private DataFromJsonForMetalsColorPage data_1;
+    private DataFromJsonForMetalsColorPage data_2;
+    private DataFromJsonForMetalsColorPage data_3;
+    private DataFromJsonForMetalsColorPage data_4;
+    private DataFromJsonForMetalsColorPage data_5;
 
-    public Data getData_1() {
+    public DataFromJsonForMetalsColorPage getData_1() {
         return data_1;
     }
 
-    public Data getData_2() {
+    public DataFromJsonForMetalsColorPage getData_2() {
         return data_2;
     }
 
-    public Data getData_3() {
+    public DataFromJsonForMetalsColorPage getData_3() {
         return data_3;
     }
 
-    public Data getData_4() {
+    public DataFromJsonForMetalsColorPage getData_4() {
         return data_4;
     }
 
-    public Data getData_5() {
+    public DataFromJsonForMetalsColorPage getData_5() {
         return data_5;
     }
 }

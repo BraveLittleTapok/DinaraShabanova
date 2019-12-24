@@ -10,7 +10,7 @@ import java.util.List;
 public class MetalsAndColorsPage extends WebPage {
 
     @Css(".main-content")
-    private MainSection mainSection;
+    private MainSectionOfMetalsAndColorPage mainSection;
 
     @FindBy(xpath = "//div[@name='log-sidebar']")
     private LogSection log;
