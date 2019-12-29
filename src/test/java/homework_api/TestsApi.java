@@ -1,28 +1,62 @@
 package homework_api;
 
 import homework_api.api.BoardApi;
+import homework_api.api.Boards;
 import homework_api.beans.Board;
+import io.restassured.http.Method;
 import org.testng.annotations.Test;
 
-import java.util.List;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.IsEqual.equalTo;
 
 public class TestsApi {
-    Step step = new Step();
-    BoardApi api = new BoardApi();
-    List<Board> boards = api.getBoardsResponse(api.getAllBoards());
 
+    @Test(priority = 1)
+    public void createBoard() {
+        Board answer = BoardApi.getBoardAnswer(BoardApi
+                .with()
+                .method(Method.POST)
+                .name("Test Board")
+                .callApi().then()
+                .specification(BoardApi.successResponse()).extract().response());
+        assertThat(answer.name, equalTo("Test Board"));
+    }
+
+    @Test(priority = 2)
+    public void getBoardByName() {
+        Board answer = BoardApi.getBoardAnswer(BoardApi
+                .with()
+                .method(Method.GET)
+                .path(Boards.getBoardIdByName("Test Board"))
+                .callApi().then()
+                .specification(BoardApi.successResponse()).extract().response());
+
+    }
+
+    @Test(priority = 3)
+    public void deleteBoardByName() {
+        BoardApi
+                .with()
+                .method(Method.DELETE)
+                .path(Boards.getBoardIdByName("Test Board"))
+                .callApi().then()
+                .specification(BoardApi.successResponse());
+    }
+
+
+    @Test(priority = 4)
+    public void getDeletedBoardByName() {
+        BoardApi
+                .with()
+                .method(Method.GET)
+                .path(Boards.getBoardIdByName("Test Board"))
+                .callApi().then()
+                .specification(BoardApi.notFoundResponse());
+    }
+/*
     @Test
     public void simpleCall() {
 
-        //    BoardApi api = new BoardApi();
-    /*    api.callApi().prettyPeek();
-        api.callApicreateDesk();
-
-        List<Board> boards = api.getBoardsResponse(api.callApi());
-        System.out.println(boards.size());
-//        for (int i = 0; i < 4; i++) {
-//            System.out.println(boards.get(i).name);
-//        }*/
     }
 
     @Test
@@ -63,5 +97,5 @@ public class TestsApi {
     @Test
     public void badRequest() {
 
-    }
+    }*/
 }

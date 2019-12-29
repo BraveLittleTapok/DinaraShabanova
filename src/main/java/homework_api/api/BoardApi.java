@@ -3,87 +3,120 @@ package homework_api.api;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import homework_api.beans.Board;
+import homework_api.utils.PropertiesProvider;
+import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.http.ContentType;
+import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
-import org.apache.http.HttpHeaders;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.client.methods.RequestBuilder;
+import org.apache.http.HttpStatus;
 
-import java.util.List;
+import java.nio.charset.Charset;
+import java.util.HashMap;
 
-import static homework_api.endpoints.URLS.*;
-import static io.restassured.RestAssured.given;
-import static io.restassured.http.ContentType.JSON;
-import static io.restassured.http.ContentType.TEXT;
-import static org.apache.http.HttpStatus.*;
+import static io.restassured.http.ContentType.URLENC;
 import static org.hamcrest.Matchers.lessThan;
 
 public class BoardApi {
-
-
-    public Response getAllBoards() {
-        return request()
-                .get(allBoardURL())
-                .then()
-                .spec(successResponse())
-                .extract().response();
+    private BoardApi() {
     }
 
-    public List<Board> getBoardsResponse(Response response) {
-        return new Gson().fromJson(response.asString().trim(), new TypeToken<List<Board>>() {
+    public PropertiesProvider properties = new PropertiesProvider();
+
+    private String path = "";
+    private Method method = Method.GET;
+    private ContentType contentType = URLENC;
+    private Charset charset = Charset.defaultCharset();
+    private HashMap<String, String> params = new HashMap<String, String>();
+
+    public static class ApiBuilder {
+        BoardApi boardApi;
+
+        private ApiBuilder(BoardApi gcApi) {
+            boardApi = gcApi;
+        }
+
+        public ApiBuilder path(String path) {
+            boardApi.path = path;
+            return this;
+        }
+
+        public ApiBuilder method(Method method) {
+            boardApi.method = method;
+            return this;
+        }
+
+        public ApiBuilder contentType(ContentType contentType) {
+            boardApi.contentType = contentType;
+            return this;
+        }
+
+        public ApiBuilder charset(Charset charset) {
+            boardApi.charset = charset;
+            return this;
+        }
+
+        public ApiBuilder id(String id) {
+            boardApi.params.put("id", id);
+            return this;
+        }
+
+
+        public ApiBuilder closed(Boolean isClosed) {
+            boardApi.params.put("closed", isClosed.toString());
+            return this;
+        }
+
+        public ApiBuilder name(String name) {
+            boardApi.params.put("name", name);
+            return this;
+        }
+
+        public Response callApi() {
+            return RestAssured.with()
+                    .spec(baseRequestConfiguration(boardApi.properties))
+                    .contentType(boardApi.contentType.withCharset(boardApi.charset.name()))
+                    .params(boardApi.params)
+                    .log().all()
+                    .request(boardApi.method,
+                            String.format("%s%s", boardApi.properties.getPropertyByName("path"), boardApi.path))
+                    .prettyPeek();
+        }
+    }
+
+    public static ApiBuilder with() {
+        BoardApi api = new BoardApi();
+        return new ApiBuilder(api);
+    }
+
+    public static Board getBoardAnswer(Response response) {
+        return new Gson().fromJson(response.asString().trim(), new TypeToken<Board>() {
         }.getType());
     }
 
-    private RequestSpecification request() {
-        return given().contentType(JSON);
-    }
-
-    public Response deleteBoard(String nameOfBoard) {
-        HttpUriRequest request = RequestBuilder
-               .
-        return request()
-                .delete(deleteBoardURL(nameOfBoard))
-                .then()
-                .spec(successResponse())
-                .extract().response();
-    }
-
-
-    public Response createBoard(String nameOfBoard) {
-        return request()
-                .post(createBoardURL(nameOfBoard))
-                .then()
-                .spec(successResponse())
-                .extract().response();
-    }
-
-    private ResponseSpecification successResponse() {
+    public static ResponseSpecification successResponse() {
         return new ResponseSpecBuilder()
-                .expectContentType(JSON)
-                .expectHeader(HttpHeaders.CONNECTION, "keep-alive")
-                .expectResponseTime(lessThan(2000L))
-                .expectStatusCode(SC_OK)
+                .expectResponseTime(lessThan(20000L))
+                .expectStatusCode(HttpStatus.SC_OK)
                 .build();
     }
 
-
-    public static ResponseSpecification boardNotFound() {
+    public static ResponseSpecification notFoundResponse() {
         return new ResponseSpecBuilder()
-                .expectContentType(TEXT)
-                .expectHeader(HttpHeaders.CONNECTION, "keep-alive")
-                .expectResponseTime(lessThan(2000L))
-                .expectStatusCode(SC_NOT_FOUND)
+                .expectResponseTime(lessThan(20000L))
+                .expectStatusCode(HttpStatus.SC_NOT_FOUND)
                 .build();
     }
 
-    public static ResponseSpecification badRequest() {
-        return new ResponseSpecBuilder()
-                .expectContentType(TEXT)
-                .expectHeader(HttpHeaders.CONNECTION, "keep-alive")
-                .expectResponseTime(lessThan(2000L))
-                .expectStatusCode(SC_BAD_REQUEST)
+    public static RequestSpecification baseRequestConfiguration(PropertiesProvider properties) {
+        return new RequestSpecBuilder()
+                .setRelaxedHTTPSValidation()
+                .setBaseUri(properties.getPropertyByName("path"))
+                .addParam("key", properties.getPropertyByName("key"))
+                .addParam("token", properties.getPropertyByName("token"))
                 .build();
     }
 }

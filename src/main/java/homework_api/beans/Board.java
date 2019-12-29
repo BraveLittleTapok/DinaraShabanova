@@ -100,4 +100,5 @@ public class Board {
         Board rhs = ((Board) other);
         return new EqualsBuilder().append(descData, rhs.descData).append(idTags, rhs.idTags).append(pinned, rhs.pinned).append(labelNames, rhs.labelNames).append(shortUrl, rhs.shortUrl).append(invited, rhs.invited).append(dateLastActivity, rhs.dateLastActivity).append(datePluginDisable, rhs.datePluginDisable).append(shortLink, rhs.shortLink).append(memberships, rhs.memberships).append(url, rhs.url).append(prefs, rhs.prefs).append(subscribed, rhs.subscribed).append(starred, rhs.starred).append(invitations, rhs.invitations).append(name, rhs.name).append(idOrganization, rhs.idOrganization).append(dateLastView, rhs.dateLastView).append(closed, rhs.closed).append(id, rhs.id).append(desc, rhs.desc).append(powerUps, rhs.powerUps).isEquals();
     }
+
 }
