@@ -5,7 +5,7 @@ import com.epam.jdi.light.elements.pageobjects.annotations.Url;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.XPath;
 import homework_jdi.commonelements.HeaderMenu;
 import homework_jdi.commonelements.HeaderMenuItems;
-import homework_jdi.commonelements.entities.JdiUser;
+import homework_jdi.pages.homepage.entities.JdiUser;
 import homework_jdi.pages.homepage.HomePage;
 import homework_jdi.pages.metalsandcolors.MetalsAndColorsPage;
 

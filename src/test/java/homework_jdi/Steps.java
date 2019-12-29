@@ -3,7 +3,7 @@ package homework_jdi;
 import homework_jdi.commonelements.HeaderMenuItems;
 import org.testng.Assert;
 
-import static homework_jdi.commonelements.entities.JdiUser.ROMAN;
+import static homework_jdi.pages.homepage.entities.JdiUser.ROMAN;
 import static java.lang.String.format;
 public class Steps {
 
@@ -44,7 +44,7 @@ public class Steps {
 
     }
     public void resultShouldBeSuccessful(DataFromJsonForMetalsColorPage dataFromJson) {
-        int expected = dataFromJson.getSummary().get(0).intValue() + dataFromJson.getSummary().get(1).intValue();
+        int expected = dataFromJson.getSumOfElementsSummary();
         Assert.assertEquals(JdiSite.metalColorsPage.getLog().getSummary(), Integer.valueOf(expected));
         DataFromJsonForMetalsColorPage actualDataWithoutSummary = getObjectWithDataFromSite();
         Assert.assertTrue(actualDataWithoutSummary.equals(dataFromJson));

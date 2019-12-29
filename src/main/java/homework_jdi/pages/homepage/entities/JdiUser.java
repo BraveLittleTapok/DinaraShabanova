@@ -1,4 +1,4 @@
-package homework_jdi.commonelements.entities;
+package homework_jdi.pages.homepage.entities;
 
 public class JdiUser {
 

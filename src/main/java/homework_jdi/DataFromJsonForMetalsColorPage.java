@@ -1,5 +1,7 @@
 package homework_jdi;
 
+import homework_jdi.pages.metalsandcolors.entities.Summary;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -11,12 +13,15 @@ public class DataFromJsonForMetalsColorPage {
     private String metals;
     private List<String> vegetables;
 
-    public List<Integer> getSummary() {
-        return summary;
+    public Summary getSummary() {
+        Summary summaryObject = new Summary();
+        summaryObject.setSummaryElementEven(summary.get(1));
+        summaryObject.setSummaryElementOdd(summary.get(0));
+        return summaryObject;
     }
 
-    public void setSummary(List<Integer> summary) {
-        this.summary = summary;
+    public Integer getSumOfElementsSummary() {
+        return summary.get(0) + summary.get(1);
     }
 
     public List<String> getElements() {

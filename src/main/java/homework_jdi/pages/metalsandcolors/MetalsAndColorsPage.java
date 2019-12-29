@@ -3,6 +3,8 @@ package homework_jdi.pages.metalsandcolors;
 import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
+import homework_jdi.pages.metalsandcolors.entities.Summary;
+import homework_jdi.pages.metalsandcolors.forms.SummaryForm;
 import org.openqa.selenium.By;
 
 import java.util.List;
@@ -10,17 +12,15 @@ import java.util.List;
 public class MetalsAndColorsPage extends WebPage {
 
     @Css(".main-content")
-    private MainSectionOfMetalsAndColorPage mainSection;
+    private MainSectionForChoosingElements mainSection;
+
+    private SummaryForm summary;
 
     @FindBy(xpath = "//div[@name='log-sidebar']")
     private LogSection log;
 
-    public void setSummary(List<Integer> summaryList) {
-        mainSection.getSummaryElementOdd().list().find(By.xpath("//label[contains(text(),'" +
-                summaryList.get(0).toString() + "')]")).click();
-        mainSection.getSummaryElementEven().list().find(By.xpath("//label[contains(text(),'" +
-                summaryList.get(1).toString() + "')]")).click();
-        mainSection.getSummaryButton().click();
+    public void setSummary(Summary summaryFields) {
+         summary.fill(summaryFields);
     }
 
     public void setVegetables(List<String> vegValues) {
