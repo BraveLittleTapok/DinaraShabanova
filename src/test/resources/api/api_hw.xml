@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Exercise">
+    <test name="Api_HomeWork">
+        <classes>
+            <class name="homework_api.TestsApi"/>
+        </classes>
+    </test>
+</suite>

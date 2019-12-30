@@ -136,10 +136,20 @@
         <profile>
             <id>test-CucumberExercise</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>src/test/resources/hw6/exercise.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>HW_API</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/api/api_hw.xml</suite.xml>
             </properties>
         </profile>
     </profiles>
