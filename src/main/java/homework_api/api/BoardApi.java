@@ -49,29 +49,18 @@ public class BoardApi {
             return this;
         }
 
-        public ApiBuilder contentType(ContentType contentType) {
-            boardApi.contentType = contentType;
-            return this;
-        }
-
-        public ApiBuilder charset(Charset charset) {
-            boardApi.charset = charset;
-            return this;
-        }
-
         public ApiBuilder id(String id) {
             boardApi.params.put("id", id);
             return this;
         }
 
-
-        public ApiBuilder closed(Boolean isClosed) {
-            boardApi.params.put("closed", isClosed.toString());
+        public ApiBuilder name(String name) {
+            boardApi.params.put("name", name);
             return this;
         }
 
-        public ApiBuilder name(String name) {
-            boardApi.params.put("name", name);
+        public ApiBuilder desc(String desc) {
+            boardApi.params.put("desc", desc);
             return this;
         }
 
@@ -111,6 +100,12 @@ public class BoardApi {
                 .build();
     }
 
+    public static ResponseSpecification badRequest() {
+        return new ResponseSpecBuilder()
+                .expectResponseTime(lessThan(20000L))
+                .expectStatusCode(HttpStatus.SC_BAD_REQUEST)
+                .build();
+    }
     public static RequestSpecification baseRequestConfiguration(PropertiesProvider properties) {
         return new RequestSpecBuilder()
                 .setRelaxedHTTPSValidation()

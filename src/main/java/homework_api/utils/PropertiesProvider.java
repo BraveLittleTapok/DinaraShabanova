@@ -8,17 +8,6 @@ import java.util.Properties;
 public class PropertiesProvider {
     private static final String PATH_TO_PROPERTIES = "src/main/resources/hw_api/api.properties";
 
-    public static Properties getProperty(){
-        Properties prop = new Properties();
-        try {
-            prop.load(new FileInputStream(PATH_TO_PROPERTIES));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return prop;
-    }
-
-
     public static String getPropertyByName(String name){
         Properties prop = new Properties();
         try {
