@@ -3,6 +3,7 @@ package homework_jdi.pages.metalsandcolors;
 import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
+import homework_jdi.DataFromJsonForMetalsColorPage;
 import homework_jdi.pages.metalsandcolors.entities.Summary;
 import homework_jdi.pages.metalsandcolors.forms.SummaryForm;
 import org.openqa.selenium.By;
@@ -20,7 +21,7 @@ public class MetalsAndColorsPage extends WebPage {
     private LogSection log;
 
     public void setSummary(Summary summaryFields) {
-         summary.fill(summaryFields);
+        summary.fill(summaryFields);
     }
 
     public void setVegetables(List<String> vegValues) {
@@ -51,5 +52,14 @@ public class MetalsAndColorsPage extends WebPage {
 
     public LogSection getLog() {
         return log;
+    }
+
+    public void fill(DataFromJsonForMetalsColorPage data) {
+        setSummary(data.getSummary());
+        setVegetables(data.getVegetables());
+        setColors(data.getColor());
+        setElements(data.getElements());
+        setMetals(data.getMetals());
+        clickSubmit();
     }
 }

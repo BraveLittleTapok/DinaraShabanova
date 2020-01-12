@@ -35,14 +35,9 @@ public class Steps {
 
     public void fillPageWithDataFromJson(DataFromJsonForMetalsColorPage dataFromJsonForMetalsColorPage) {
         JdiSite.metalColorsPage.refresh();
-        JdiSite.metalColorsPage.setSummary(dataFromJsonForMetalsColorPage.getSummary());
-        JdiSite.metalColorsPage.setVegetables(dataFromJsonForMetalsColorPage.getVegetables());
-        JdiSite.metalColorsPage.setColors(dataFromJsonForMetalsColorPage.getColor());
-        JdiSite.metalColorsPage.setElements(dataFromJsonForMetalsColorPage.getElements());
-        JdiSite.metalColorsPage.setMetals(dataFromJsonForMetalsColorPage.getMetals());
-        JdiSite.metalColorsPage.clickSubmit();
-
+        JdiSite.metalColorsPage.fill(dataFromJsonForMetalsColorPage);
     }
+
     public void resultShouldBeSuccessful(DataFromJsonForMetalsColorPage dataFromJson) {
         int expected = dataFromJson.getSumOfElementsSummary();
         Assert.assertEquals(JdiSite.metalColorsPage.getLog().getSummary(), Integer.valueOf(expected));
@@ -58,6 +53,5 @@ public class Steps {
         actualData.setVegetables(JdiSite.metalColorsPage.getLog().getVegetables());
 
         return actualData;
-
     }
 }
