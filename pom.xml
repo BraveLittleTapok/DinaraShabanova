@@ -30,6 +30,9 @@
         <maven.surefire.plugin.version>2.18.1</maven.surefire.plugin.version>
         <allure.maven.plugin.version>2.10.0</allure.maven.plugin.version>
         <cucumber.version>1.2.5</cucumber.version>
+        <cucumber.version>1.2.5</cucumber.version>
+
+        <domain>https://jdi-testing.github.io/jdi-light/</domain>
     </properties>
 
     <profiles>
@@ -136,10 +139,21 @@
         <profile>
             <id>test-CucumberExercise</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>src/test/resources/hw6/exercise.xml</suite.xml>
+            </properties>
+        </profile>
+
+
+        <profile>
+            <id>test-JDI</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw_jdi/JDI.xml</suite.xml>
             </properties>
         </profile>
     </profiles>
@@ -203,6 +217,18 @@
             <artifactId>cucumber-java</artifactId>
             <version>${cucumber.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.epam.jdi</groupId>
+            <artifactId>jdi-light-html</artifactId>
+            <version>1.1.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.9</version>
         </dependency>
 
     </dependencies>
