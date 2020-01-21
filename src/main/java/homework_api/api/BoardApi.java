@@ -10,6 +10,7 @@ import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.apache.http.HttpStatus;
@@ -81,8 +82,8 @@ public class BoardApi {
         return new ApiBuilder(api);
     }
 
-    public static Board getBoardAnswer(Response response) {
-        return new Gson().fromJson(response.asString().trim(), new TypeToken<Board>() {
+    public static Board getBoardAnswer(ValidatableResponse response)  {
+        return new Gson().fromJson(response.extract().asString().trim(), new TypeToken<Board>() {
         }.getType());
     }
 
@@ -109,7 +110,6 @@ public class BoardApi {
     public static RequestSpecification baseRequestConfiguration(PropertiesProvider properties) {
         return new RequestSpecBuilder()
                 .setRelaxedHTTPSValidation()
-                .setBaseUri(properties.getPropertyByName("path"))
                 .addParam("key", properties.getPropertyByName("key"))
                 .addParam("token", properties.getPropertyByName("token"))
                 .build();
