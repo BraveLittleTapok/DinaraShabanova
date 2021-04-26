@@ -19,7 +19,7 @@
 
         <selenium.version>3.141.59</selenium.version>
         <webdrivermanager.version>3.7.1</webdrivermanager.version>
-        <common.io.version>2.6</common.io.version>
+        <common.io.version>2.7</common.io.version>
         <selenide.version>5.5.0</selenide.version>
         <allure.version>2.13.0</allure.version>
         <aspectj.version>1.8.10</aspectj.version>
